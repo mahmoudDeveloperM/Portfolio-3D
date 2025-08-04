@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Mahmoud Abdelrahman - Professional Frontend Developer specializing in Vue.js and Nuxt.js. Creating responsive, multilingual, and SEO-friendly web applications."
+    />
+    <meta
+      name="keywords"
+      content="Frontend Developer, Vue.js, Nuxt.js, JavaScript, Web Development, PWA, SEO, Portfolio, Mahmoud Abdelrahman"
+    />
+    <meta name="author" content="Mahmoud Abdelrahman" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://mahmouddeveloperm.github.io/Portfolio/"
+    />
+    <meta
+      property="og:title"
+      content="Mahmoud Abdelrahman | Vue.js & Nuxt.js Frontend Developer"
+    />
+    <meta
+      property="og:description"
+      content="Professional Frontend Developer specializing in Vue.js and Nuxt.js. Check out my portfolio of responsive, multilingual web applications."
+    />
+    <meta
+      property="og:image"
+      content="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+    />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Mahmoud Abdelrahman | Vue.js & Nuxt.js Frontend Developer"
+    />
+    <meta
+      name="twitter:description"
+      content="Professional Frontend Developer specializing in Vue.js and Nuxt.js. Check out my portfolio of responsive, multilingual web applications."
+    />
+
+    <!-- Canonical URL -->
+    <link
+      rel="canonical"
+      href="https://mahmouddeveloperm.github.io/Portfolio/"
+    />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="https://img.icons8.com/fluency/48/000000/code.png"
+      type="image/png"
+    />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0a0a0a" />
+
+    <!-- Title -->
+    <title>
+      Mahmoud Abdelrahman | Vue.js & Nuxt.js Frontend Developer Portfolio
+    </title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Mahmoud Abdelrahman",
+        "jobTitle": "Frontend Developer",
+        "url": "https://mahmouddeveloperm.github.io/Portfolio/",
+        "sameAs": [
+          "https://github.com/mahmoudDeveloperM",
+          "https://www.linkedin.com/in/mahmoud-abdalrahman-2baa81197/"
+        ],
+        "description": "Professional Frontend Developer specializing in Vue.js and Nuxt.js development.",
+        "skills": [
+          "Vue.js",
+          "Nuxt.js",
+          "JavaScript",
+          "HTML5",
+          "CSS3",
+          "PWA",
+          "SEO"
+        ],
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Megatron Company"
+        },
+        "image": "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
+      }
+    </script>
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary: #00d4ff;
+        --secondary: #ff6b6b;
+        --accent: #4ecdc4;
+        --dark: #0a0a0a;
+        --dark-light: #1a1a1a;
+        --gray: #333;
+        --light-gray: #666;
+        --text: #ffffff;
+        --text-muted: #a0a0a0;
+        --neon-blue: #00f5ff;
+        --neon-purple: #8a2be2;
+        --neon-pink: #ff1493;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--dark);
+        color: var(--text);
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 10;
+      }
+
+      /* 3D Canvas Background */
+      #three-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      /* Loading Screen */
+      .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--dark);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 1s ease;
+      }
+
+      .loading-screen.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .loader {
+        width: 50px;
+        height: 50px;
+        border: 3px solid rgba(0, 212, 255, 0.3);
+        border-top: 3px solid var(--primary);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      /* Navigation */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 1.5rem 0;
+        background: rgba(10, 10, 10, 0.1);
+        backdrop-filter: blur(20px);
+        z-index: 1000;
+        transition: all 0.3s ease;
+        border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+      }
+
+      nav.scrolled {
+        background: rgba(10, 10, 10, 0.9);
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+      }
+
+      .nav-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--primary);
+        text-decoration: none;
+        text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        transition: all 0.3s ease;
+      }
+
+      .logo:hover {
+        text-shadow: 0 0 30px rgba(0, 212, 255, 0.8);
+        transform: scale(1.05);
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: var(--text);
+        text-decoration: none;
+        font-weight: 500;
+        position: relative;
+        transition: all 0.3s ease;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+        background: rgba(0, 212, 255, 0.1);
+        box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* Hero Section */
+      .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 10;
+      }
+
+      .hero-title {
+        font-size: clamp(3rem, 8vw, 6rem);
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple), var(--neon-pink));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 0 50px rgba(0, 245, 255, 0.5);
+        animation: glow 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes glow {
+        from {
+          filter: drop-shadow(0 0 20px rgba(0, 245, 255, 0.5));
+        }
+        to {
+          filter: drop-shadow(0 0 40px rgba(0, 245, 255, 0.8));
+        }
+      }
+
+      .hero-subtitle {
+        font-size: clamp(1.2rem, 3vw, 2rem);
+        color: var(--text-muted);
+        margin-bottom: 2rem;
+        font-weight: 300;
+        opacity: 0.8;
+      }
+
+      .hero-description {
+        font-size: 1.2rem;
+        color: var(--text-muted);
+        margin-bottom: 3rem;
+        max-width: 600px;
+        opacity: 0.9;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background: linear-gradient(135deg, var(--neon-blue), var(--accent));
+        color: var(--dark);
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 0 30px rgba(0, 245, 255, 0.3);
+        border: 2px solid transparent;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-2px) scale(1.05);
+        box-shadow: 0 10px 40px rgba(0, 245, 255, 0.5);
+        border: 2px solid var(--neon-blue);
+      }
+
+      .cta-button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+
+      .cta-button:hover::before {
+        left: 100%;
+      }
+
+      /* Glassmorphism Cards */
+      .glass-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 2rem;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .glass-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(0, 245, 255, 0.1), rgba(138, 43, 226, 0.1));
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .glass-card:hover::before {
+        opacity: 1;
+      }
+
+      .glass-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 60px rgba(0, 245, 255, 0.2);
+        border: 1px solid rgba(0, 245, 255, 0.3);
+      }
+
+      /* Skills Section */
+      .skills {
+        padding: 8rem 0;
+        position: relative;
+        z-index: 10;
+      }
+
+      .section-title {
+        font-size: 3rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 4rem;
+        background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 0 30px rgba(0, 245, 255, 0.5);
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 3rem;
+        margin-top: 4rem;
+      }
+
+      .skill-card {
+        position: relative;
+        z-index: 2;
+      }
+
+      .skill-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--neon-blue);
+        position: relative;
+        z-index: 2;
+        text-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .skill-tag {
+        background: rgba(0, 245, 255, 0.2);
+        color: var(--neon-blue);
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        border: 1px solid var(--neon-blue);
+        transition: all 0.3s ease;
+        box-shadow: 0 0 10px rgba(0, 245, 255, 0.2);
+      }
+
+      .skill-tag:hover {
+        background: var(--neon-blue);
+        color: var(--dark);
+        box-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
+        transform: scale(1.05);
+      }
+
+      /* About Section */
+      .about {
+        padding: 8rem 0;
+        position: relative;
+        z-index: 10;
+      }
+
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .about-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--text-muted);
+      }
+
+      .about-text h2 {
+        color: var(--text);
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .about-stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+
+      .stat-card {
+        text-align: center;
+        padding: 2rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .stat-number {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--neon-blue);
+        display: block;
+        text-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
+      }
+
+      .stat-label {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      /* Projects Section */
+      .projects {
+        padding: 8rem 0;
+        position: relative;
+        z-index: 10;
+      }
+
+      .project-card {
+        margin-bottom: 3rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .project-content {
+        padding: 2rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .project-title {
+        font-size: 1.5rem;
+        color: var(--neon-blue);
+        margin-bottom: 1rem;
+        text-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
+      }
+
+      .project-description {
+        color: var(--text-muted);
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .tech-tag {
+        background: rgba(78, 205, 196, 0.2);
+        color: var(--accent);
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        border: 1px solid var(--accent);
+        transition: all 0.3s ease;
+        box-shadow: 0 0 10px rgba(78, 205, 196, 0.2);
+      }
+
+      .tech-tag:hover {
+        background: var(--accent);
+        color: var(--dark);
+        box-shadow: 0 0 20px rgba(78, 205, 196, 0.5);
+        transform: scale(1.05);
+      }
+
+      .project-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .project-link {
+        color: var(--neon-blue);
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        padding: 0.5rem 1rem;
+        border: 1px solid var(--neon-blue);
+        border-radius: 25px;
+        background: rgba(0, 245, 255, 0.1);
+      }
+
+      .project-link:hover {
+        background: var(--neon-blue);
+        color: var(--dark);
+        box-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
+        transform: translateY(-2px);
+      }
+
+      /* Contact Section */
+      .contact {
+        padding: 8rem 0;
+        position: relative;
+        z-index: 10;
+      }
+
+      .contact-content {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .contact-title {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+        background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .contact-description {
+        font-size: 1.2rem;
+        color: var(--text-muted);
+        margin-bottom: 3rem;
+      }
+
+      .contact-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .contact-link {
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        color: var(--text);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid var(--neon-blue);
+        background: rgba(0, 245, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-link:hover {
+        background: var(--neon-blue);
+        color: var(--dark);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(0, 245, 255, 0.5);
+      }
+
+      .contact-link::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s ease;
+      }
+
+      .contact-link:hover::before {
+        left: 100%;
+      }
+
+      /* Footer */
+      footer {
+        padding: 2rem 0;
+        text-align: center;
+        color: var(--text-muted);
+        border-top: 1px solid rgba(0, 245, 255, 0.1);
+        position: relative;
+        z-index: 10;
+      }
+
+      /* Floating Elements */
+      .floating-element {
+        position: absolute;
+        pointer-events: none;
+        opacity: 0.1;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .floating-element:nth-child(2) {
+        animation-delay: -2s;
+      }
+
+      .floating-element:nth-child(3) {
+        animation-delay: -4s;
+      }
+
+      @keyframes float {
+        0%, 100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(180deg);
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+
+        .about-content {
+          grid-template-columns: 1fr;
+        }
+
+        .about-stats {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-links {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .hero-title {
+          font-size: 3rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+      }
+
+      /* Custom Cursor */
+      .cursor {
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        border: 2px solid var(--neon-blue);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        mix-blend-mode: difference;
+        transition: transform 0.3s ease;
+        box-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
+      }
+
+      .cursor.hover {
+        transform: scale(2);
+        background: var(--neon-blue);
+        box-shadow: 0 0 30px rgba(0, 245, 255, 0.8);
+      }
+
+      /* Scroll Progress */
+      .scroll-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+        z-index: 9999;
+        transition: width 0.3s ease;
+        box-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
+      }
+
+      /* Animations */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      .slide-in-left {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+
+      .slide-in-right {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+      <div class="loader"></div>
+    </div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+
+    <!-- 3D Canvas Background -->
+    <canvas id="three-canvas"></canvas>
+
+    <nav id="navbar">
+      <div class="container">
+        <div class="nav-content">
+          <a href="#" class="logo">MA</a>
+          <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">Mahmoud<br />Abdelrahman</h1>
+          <p class="hero-subtitle">Frontend Developer</p>
+          <p class="hero-description">
+            Crafting modern web experiences with cutting-edge technologies.
+            Specializing in Vue.js and Nuxt.js development, creating responsive,
+            multilingual, and SEO-friendly applications that deliver exceptional
+            user experiences.
+          </p>
+          <a href="#projects" class="cta-button">View My Work</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="skills">
+      <div class="container">
+        <h2 class="section-title">Skills & Technologies</h2>
+        <div class="skills-grid">
+          <div class="skill-card glass-card">
+            <h3>Frontend Development</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">HTML5</span>
+              <span class="skill-tag">CSS3</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">Vue.js</span>
+              <span class="skill-tag">Nuxt.js</span>
+              <span class="skill-tag">Tailwind CSS</span>
+            </div>
+          </div>
+          <div class="skill-card glass-card">
+            <h3>State Management & Tools</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Pinia</span>
+              <span class="skill-tag">Vite</span>
+              <span class="skill-tag">Git/GitHub</span>
+              <span class="skill-tag">VS Code</span>
+            </div>
+          </div>
+          <div class="skill-card glass-card">
+            <h3>Advanced Features</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">PWA</span>
+              <span class="skill-tag">i18n</span>
+              <span class="skill-tag">SEO</span>
+              <span class="skill-tag">SSR/SPA</span>
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">MongoDB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <div class="about-content">
+          <div class="about-text">
+            <h2>About Me</h2>
+            <p>
+              I'm a passionate frontend developer with expertise in modern web
+              technologies, currently working at Megatron Company. My journey in
+              web development has led me to master Vue.js and Nuxt.js, creating
+              responsive, multilingual applications that deliver exceptional
+              user experiences.
+            </p>
+            <p>
+              I specialize in building PWA applications with advanced features
+              like offline support, internationalization, and performance
+              optimization. I've successfully boosted app performance by 25% and
+              improved user engagement through innovative solutions.
+            </p>
+          </div>
+          <div class="about-stats">
+            <div class="stat-card glass-card">
+              <span class="stat-number">10+</span>
+              <span class="stat-label">Projects Completed</span>
+            </div>
+            <div class="stat-card glass-card">
+              <span class="stat-number">2+</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat-card glass-card">
+              <span class="stat-number">1000+</span>
+              <span class="stat-label">Users Served</span>
+            </div>
+            <div class="stat-card glass-card">
+              <span class="stat-number">∞</span>
+              <span class="stat-label">Cups of Coffee</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects">
+      <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+
+        <div class="project-card glass-card">
+          <div class="project-content">
+            <h3 class="project-title">Book Store Platform</h3>
+            <p class="project-description">
+              A comprehensive book download and reading platform with advanced
+              caching strategies and lazy loading techniques. Achieved 40%
+              decrease in page load times and 30% increase in average session
+              duration.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Vue.js</span>
+              <span class="tech-tag">Nuxt.js</span>
+              <span class="tech-tag">Tailwind CSS</span>
+              <span class="tech-tag">PWA</span>
+            </div>
+            <div class="project-links">
+              <a href="https://www.ysk-book.com/en" class="project-link"
+                >Live Demo</a
+              >
+              <a
+                href="https://github.com/mahmoudDeveloperM/books"
+                class="project-link"
+                >Source Code</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card glass-card">
+          <div class="project-content">
+            <h3 class="project-title">Comics Platform & Dashboard</h3>
+            <p class="project-description">
+              An innovative comic viewing experience with responsive design and
+              simplified navigation. Enhanced scalability using modular
+              components and advanced state management, achieving 35% faster
+              rendering times.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Nuxt.js</span>
+              <span class="tech-tag">Vue.js</span>
+              <span class="tech-tag">Tailwind CSS</span>
+              <span class="tech-tag">Pinia</span>
+            </div>
+            <div class="project-links">
+              <a href="https://www.ysk-comics.com/en" class="project-link"
+                >Live Demo</a
+              >
+              <a
+                href="https://github.com/mahmoudDeveloperM/comics"
+                class="project-link"
+                >Source Code</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card glass-card">
+          <div class="project-content">
+            <h3 class="project-title">Megatron Company</h3>
+            <p class="project-description">
+              Developed a fast, SEO-optimized corporate website for Megatron
+              Soft using Vue.js, Nuxt.js, and Tailwind CSS. <br />
+              Implemented server-side rendering (SSR) for improved search engine
+              visibility. <br />
+              Added PWA features (offline support & push notifications),
+              increasing user engagement by 20%. <br />
+              Integrated internationalization (i18n), supporting 5+ languages to
+              expand global reach.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Nuxt.js</span>
+              <span class="tech-tag">Vue.js</span>
+              <span class="tech-tag">Tailwind CSS</span>
+              <span class="tech-tag">Pinia</span>
+            </div>
+            <div class="project-links">
+              <a href="https://www.megatron-soft.com/en" class="project-link"
+                >Live Demo</a
+              >
+              <a
+                href="https://github.com/mahmoudDeveloperM/Megatron"
+                class="project-link"
+                >Source Code</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card glass-card">
+          <div class="project-content">
+            <h3 class="project-title">Shahin Furniture Company</h3>
+            <p class="project-description">
+              Created a modern furniture showcase website focused on performance
+              and user experience.
+              <br />
+              Built a responsive, mobile-first UI with Tailwind CSS, increasing
+              customer satisfaction by 15%. <br />
+              Optimized content caching and lazy loading, reducing page load
+              time by 35%. <br />
+              Enhanced SEO performance through semantic HTML and structured
+              data.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Nuxt.js</span>
+              <span class="tech-tag">Vue.js</span>
+              <span class="tech-tag">Tailwind CSS</span>
+              <span class="tech-tag">Pinia</span>
+            </div>
+            <div class="project-links">
+              <a href="https://www.shahin-furniture.com/" class="project-link"
+                >Live Demo</a
+              >
+              <a
+                href="https://github.com/mahmoudDeveloperM/Shahin"
+                class="project-link"
+                >Source Code</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card glass-card">
+          <div class="project-content">
+            <h3 class="project-title">El-Doc Store</h3>
+            <p class="project-description">
+              Built an intuitive and accessible medical e-commerce platform.
+              Prioritized clarity and ease-of-use for healthcare professionals
+              and consumers alike. Impact: Boosted customer engagement through
+              mobile-first design and rapid UI feedback.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Nuxt.js</span>
+              <span class="tech-tag">Vue.js</span>
+              <span class="tech-tag">Tailwind CSS</span>
+              <span class="tech-tag">Pinia</span>
+            </div>
+            <div class="project-links">
+              <a href="https://www.el-doc.com/" class="project-link"
+                >Live Demo</a
+              >
+              <a
+                href="https://github.com/mahmoudDeveloperM/El-Doc"
+                class="project-link"
+                >Source Code</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card glass-card">
+          <div class="project-content">
+            <h3 class="project-title">SADR Website & Dashboard</h3>
+            <p class="project-description">
+              A comprehensive platform featuring user-friendly interface, secure
+              authentication, responsive design, and integrated multilingual
+              support for worldwide accessibility.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Vue.js</span>
+              <span class="tech-tag">Nuxt.js</span>
+              <span class="tech-tag">Tailwind CSS</span>
+              <span class="tech-tag">i18n</span>
+            </div>
+            <div class="project-links">
+              <a href="https://www.sadr.com.sa/en" class="project-link"
+                >Live Demo</a
+              >
+              <a
+                href="https://github.com/mahmoudDeveloperM/sadr"
+                class="project-link"
+                >Source Code</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card glass-card">
+          <div class="project-content">
+            <h3 class="project-title">Car Services Platform</h3>
+            <p class="project-description">
+              A car service booking platform with engaging interface and
+              strategic lazy loading implementation. Achieved 35% reduction in
+              page load time through performance optimization techniques.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Tailwind CSS</span>
+              <span class="tech-tag">Vue.js</span>
+              <span class="tech-tag">Nuxt.js</span>
+              <span class="tech-tag">PWA</span>
+            </div>
+            <div class="project-links">
+              <a href="https://www.yaasta.com/ar" class="project-link"
+                >Live Demo</a
+              >
+              <a
+                href="https://github.com/mahmoudDeveloperM/Yaasta-Car-Services"
+                class="project-link"
+                >Source Code</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card glass-card">
+          <div class="project-content">
+            <h3 class="project-title">Ideal Stores</h3>
+            <p class="project-description">
+              Engineered a secure admin dashboard and dynamic storefront for
+              Ideal Stores, handling CRUD operations for 1,000+ records with
+              real-time feedback. Impact: Reached a global audience of 5,000+
+              users with multilingual support, optimized routes, and SEO
+              integration.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Tailwind CSS</span>
+              <span class="tech-tag">Vue.js</span>
+              <span class="tech-tag">Nuxt.js</span>
+              <span class="tech-tag">PWA</span>
+            </div>
+            <div class="project-links">
+              <a href="https://www.idealstores.com.sa/en" class="project-link"
+                >Live Demo</a
+              >
+              <a
+                href="https://github.com/mahmoudDeveloperM/Ideal-Stores"
+                class="project-link"
+                >Source Code</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="contact-content">
+          <h2 class="contact-title">Let's Work Together</h2>
+          <p class="contact-description">
+            Ready to bring your ideas to life? I specialize in creating
+            responsive, multilingual, and high-performance web applications.
+            Let's discuss your next project!
+          </p>
+          <div class="contact-links">
+            <a href="mailto:mahnoudhouda5632523@gmail.com" class="contact-link"
+              >Email Me</a
+            >
+            <a
+              href="https://www.linkedin.com/in/mahmoud-abdalrahman-2baa81197/"
+              class="contact-link"
+              >LinkedIn</a
+            >
+            <a
+              href="https://github.com/mahmoudDeveloperM?tab=repositories"
+              class="contact-link"
+              >GitHub</a
+            >
+            <a href="/cv.pdf" download class="contact-link"
+              >Download CV</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Mahmoud Abdelrahman. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Three.js Scene Setup
+      let scene, camera, renderer, particles, particleGeometry, particleMaterial;
+      let mouse = new THREE.Vector2();
+      let windowHalfX = window.innerWidth / 2;
+      let windowHalfY = window.innerHeight / 2;
+      let mouseX = 0, mouseY = 0;
+
+      function initThreeJS() {
+        const canvas = document.getElementById('three-canvas');
+        
+        // Scene
+        scene = new THREE.Scene();
+        
+        // Camera
+        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
+        camera.position.z = 500;
+        
+        // Renderer
+        renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setClearColor(0x000000, 0);
+        
+        // Particle System
+        createParticleSystem();
+        
+        // Add floating geometries
+        createFloatingGeometries();
+        
+        // Lighting
+        const ambientLight = new THREE.AmbientLight(0x00d4ff, 0.3);
+        scene.add(ambientLight);
+        
+        const pointLight = new THREE.PointLight(0x00f5ff, 1, 1000);
+        pointLight.position.set(0, 0, 300);
+        scene.add(pointLight);
+        
+        // Add fog for depth
+        scene.fog = new THREE.Fog(0x0a0a0a, 500, 2000);
+        
+        // Mouse movement
+        document.addEventListener('mousemove', onDocumentMouseMove, false);
+        window.addEventListener('resize', onWindowResize, false);
+        
+        animate();
+      }
+
+      function createParticleSystem() {
+        const particleCount = 2000;
+        particleGeometry = new THREE.BufferGeometry();
+        const positions = new Float32Array(particleCount * 3);
+        const colors = new Float32Array(particleCount * 3);
+        
+        for (let i = 0; i < particleCount; i++) {
+          const i3 = i * 3;
+          
+          // Positions
+          positions[i3] = (Math.random() - 0.5) * 2000;
+          positions[i3 + 1] = (Math.random() - 0.5) * 2000;
+          positions[i3 + 2] = (Math.random() - 0.5) * 1000;
+          
+          // Colors (blue to purple gradient)
+          const color = new THREE.Color();
+          color.setHSL(0.6 + Math.random() * 0.2, 0.8, 0.5 + Math.random() * 0.3);
+          colors[i3] = color.r;
+          colors[i3 + 1] = color.g;
+          colors[i3 + 2] = color.b;
+        }
+        
+        particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        particleGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+        
+        particleMaterial = new THREE.PointsMaterial({
+          size: 3,
+          vertexColors: true,
+          transparent: true,
+          opacity: 0.8,
+          blending: THREE.AdditiveBlending
+        });
+        
+        particles = new THREE.Points(particleGeometry, particleMaterial);
+        scene.add(particles);
+      }
+
+      function createFloatingGeometries() {
+        // Create floating geometric shapes
+        const geometries = [
+          new THREE.OctahedronGeometry(20, 0),
+          new THREE.TetrahedronGeometry(15, 0),
+          new THREE.IcosahedronGeometry(12, 0),
+          new THREE.DodecahedronGeometry(18, 0)
+        ];
+        
+        const material = new THREE.MeshPhongMaterial({
+          color: 0x00f5ff,
+          transparent: true,
+          opacity: 0.3,
+          wireframe: true
+        });
+        
+        for (let i = 0; i < 8; i++) {
+          const geometry = geometries[Math.floor(Math.random() * geometries.length)];
+          const mesh = new THREE.Mesh(geometry, material.clone());
+          
+          mesh.position.x = (Math.random() - 0.5) * 1500;
+          mesh.position.y = (Math.random() - 0.5) * 1500;
+          mesh.position.z = (Math.random() - 0.5) * 800;
+          
+          mesh.rotation.x = Math.random() * Math.PI;
+          mesh.rotation.y = Math.random() * Math.PI;
+          
+          mesh.userData = {
+            rotationSpeed: {
+              x: (Math.random() - 0.5) * 0.02,
+              y: (Math.random() - 0.5) * 0.02,
+              z: (Math.random() - 0.5) * 0.02
+            }
+          };
+          
+          scene.add(mesh);
+        }
+      }
+
+      function onDocumentMouseMove(event) {
+        mouseX = (event.clientX - windowHalfX) * 0.5;
+        mouseY = (event.clientY - windowHalfY) * 0.5;
+        
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+      }
+
+      function onWindowResize() {
+        windowHalfX = window.innerWidth / 2;
+        windowHalfY = window.innerHeight / 2;
+        
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      }
+
+      function animate() {
+        requestAnimationFrame(animate);
+        
+        // Rotate particles
+        if (particles) {
+          particles.rotation.x += 0.0005;
+          particles.rotation.y += 0.001;
+          
+          // Mouse interaction
+          particles.rotation.x += mouseY * 0.00005;
+          particles.rotation.y += mouseX * 0.00005;
+        }
+        
+        // Animate floating geometries
+        scene.children.forEach(child => {
+          if (child.userData && child.userData.rotationSpeed) {
+            child.rotation.x += child.userData.rotationSpeed.x;
+            child.rotation.y += child.userData.rotationSpeed.y;
+            child.rotation.z += child.userData.rotationSpeed.z;
+            
+            // Floating motion
+            child.position.y += Math.sin(Date.now() * 0.001 + child.position.x * 0.01) * 0.1;
+          }
+        });
+        
+        // Camera movement based on mouse
+        camera.position.x += (mouseX * 0.1 - camera.position.x) * 0.05;
+        camera.position.y += (-mouseY * 0.1 - camera.position.y) * 0.05;
+        camera.lookAt(scene.position);
+        
+        renderer.render(scene, camera);
+      }
+
+      // Custom cursor
+      const cursor = document.getElementById('cursor');
+      const links = document.querySelectorAll('a, button, .glass-card, .skill-tag, .tech-tag');
+
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+      });
+
+      links.forEach(link => {
+        link.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+        link.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+      });
+
+      // Navbar scroll effect
+      const navbar = document.getElementById('navbar');
+      const scrollProgress = document.getElementById('scrollProgress');
+
+      window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercentage = (scrolled / maxScroll) * 100;
+        
+        scrollProgress.style.width = scrollPercentage + '%';
+        
+        if (scrolled > 100) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+
+      // Smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // GSAP Animations
+      function initAnimations() {
+        // Hero animations
+        gsap.timeline()
+          .from('.hero-title', {
+            duration: 1.5,
+            y: 100,
+            opacity: 0,
+            ease: 'power3.out'
+          })
+          .from('.hero-subtitle', {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            ease: 'power3.out'
+          }, '-=1')
+          .from('.hero-description', {
+            duration: 1,
+            y: 30,
+            opacity: 0,
+            ease: 'power3.out'
+          }, '-=0.5')
+          .from('.cta-button', {
+            duration: 0.8,
+            y: 20,
+            opacity: 0,
+            ease: 'power3.out'
+          }, '-=0.3');
+
+        // Scroll-triggered animations
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const element = entry.target;
+              
+              if (element.classList.contains('glass-card')) {
+                gsap.to(element, {
+                  duration: 0.8,
+                  y: 0,
+                  opacity: 1,
+                  ease: 'power3.out',
+                  delay: Math.random() * 0.3
+                });
+              }
+              
+              if (element.classList.contains('section-title')) {
+                gsap.fromTo(element, {
+                  clipPath: 'inset(0 100% 0 0)',
+                  opacity: 0
+                }, {
+                  clipPath: 'inset(0 0% 0 0)',
+                  opacity: 1,
+                  duration: 1.2,
+                  ease: 'power3.out'
+                });
+              }
+              
+              observer.unobserve(element);
+            }
+          });
+        }, observerOptions);
+
+        // Observe elements
+        document.querySelectorAll('.glass-card, .section-title').forEach(el => {
+          if (el.classList.contains('glass-card')) {
+            gsap.set(el, { y: 50, opacity: 0 });
+          }
+          observer.observe(el);
+        });
+
+        // Floating animation for skill tags
+        gsap.to('.skill-tag, .tech-tag', {
+          y: -5,
+          duration: 2,
+          ease: 'power1.inOut',
+          stagger: 0.1,
+          yoyo: true,
+          repeat: -1
+        });
+
+        // Magnetic effect for buttons
+        document.querySelectorAll('.cta-button, .contact-link, .project-link').forEach(button => {
+          button.addEventListener('mousemove', (e) => {
+            const rect = button.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            gsap.to(button, {
+              duration: 0.3,
+              x: x * 0.2,
+              y: y * 0.2,
+              ease: 'power2.out'
+            });
+          });
+
+          button.addEventListener('mouseleave', () => {
+            gsap.to(button, {
+              duration: 0.3,
+              x: 0,
+              y: 0,
+              ease: 'power2.out'
+            });
+          });
+        });
+      }
+
+      // Counter animation for stats
+      function animateCounter(element, target, duration = 2000) {
+        const increment = target / (duration / 16);
+        let current = 0;
+
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+
+          if (target === Infinity) {
+            element.textContent = '∞';
+          } else {
+            element.textContent = Math.floor(current) + '+';
+          }
+        }, 16);
+      }
+
+      // Stats animation observer
+      const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const counters = entry.target.querySelectorAll('.stat-number');
+            counters.forEach((counter, index) => {
+              const targets = [10, 2, 1000, Infinity];
+              setTimeout(() => {
+                if (targets[index] === Infinity) {
+                  counter.textContent = '∞';
+                } else {
+                  animateCounter(counter, targets[index]);
+                }
+              }, index * 200);
+            });
+            statsObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      const statsSection = document.querySelector('.about-stats');
+      if (statsSection) {
+        statsObserver.observe(statsSection);
+      }
+
+      // Typing effect for hero subtitle
+      function typeWriter(element, text, speed = 100) {
+        element.textContent = '';
+        let i = 0;
+
+        function type() {
+          if (i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+          }
+        }
+
+        type();
+      }
+
+      // Glowing effect for tags
+      document.querySelectorAll('.skill-tag, .tech-tag').forEach(tag => {
+        tag.addEventListener('mouseenter', () => {
+          gsap.to(tag, {
+            duration: 0.3,
+            boxShadow: '0 0 25px rgba(0, 245, 255, 0.7)',
+            scale: 1.1,
+            ease: 'power2.out'
+          });
+        });
+
+        tag.addEventListener('mouseleave', () => {
+          gsap.to(tag, {
+            duration: 0.3,
+            boxShadow: '0 0 10px rgba(0, 245, 255, 0.2)',
+            scale: 1,
+            ease: 'power2.out'
+          });
+        });
+      });
+
+      // Initialize everything
+      window.addEventListener('load', () => {
+        // Hide loading screen
+        const loadingScreen = document.getElementById('loadingScreen');
+        setTimeout(() => {
+          loadingScreen.classList.add('hidden');
+          setTimeout(() => {
+            loadingScreen.style.display = 'none';
+          }, 1000);
+        }, 2000);
+
+        // Initialize Three.js
+        initThreeJS();
+        
+        // Initialize animations
+        initAnimations();
+        
+        // Start typing effect
+        setTimeout(() => {
+          const subtitle = document.querySelector('.hero-subtitle');
+          typeWriter(subtitle, 'Frontend Developer', 150);
+        }, 2500);
+      });
+
+      // Performance optimization
+      let ticking = false;
+
+      function updateScrollEffects() {
+        const scrolled = window.pageYOffset;
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercentage = (scrolled / maxScroll) * 100;
+        
+        scrollProgress.style.width = scrollPercentage + '%';
+        
+        if (scrolled > 100) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+        
+        ticking = false;
+      }
+
+      function requestTick() {
+        if (!ticking) {
+          requestAnimationFrame(updateScrollEffects);
+          ticking = true;
+        }
+      }
+
+      window.addEventListener('scroll', requestTick);
+
+      // Add some interactive particles on click
+      document.addEventListener('click', (e) => {
+        createClickEffect(e.clientX, e.clientY);
+      });
+
+      function createClickEffect(x, y) {
+        for (let i = 0; i < 6; i++) {
+          const particle = document.createElement('div');
+          particle.style.position = 'fixed';
+          particle.style.left = x + 'px';
+          particle.style.top = y + 'px';
+          particle.style.width = '4px';
+          particle.style.height = '4px';
+          particle.style.background = '#00f5ff';
+          particle.style.borderRadius = '50%';
+          particle.style.pointerEvents = 'none';
+          particle.style.zIndex = '9999';
+          particle.style.boxShadow = '0 0 10px #00f5ff';
+          
+          document.body.appendChild(particle);
+          
+          gsap.to(particle, {
+            duration: 1,
+            x: (Math.random() - 0.5) * 200,
+            y: (Math.random() - 0.5) * 200,
+            opacity: 0,
+            scale: 0,
+            ease: 'power2.out',
+            onComplete: () => {
+              document.body.removeChild(particle);
+            }
+          });
+        }
+      }
+    </script>
+  </body>
+</html>

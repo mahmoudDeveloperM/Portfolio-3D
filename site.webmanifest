@@ -1,0 +1,18 @@
+﻿{
+  "name": "Mahmoud Abdelrahman 3D Portfolio",
+  "short_name": "Mahmoud 3D",
+  "description": "3D frontend portfolio focused on immersive UI, SEO, and performance.",
+  "start_url": "/Portfolio-3D/",
+  "scope": "/Portfolio-3D/",
+  "display": "standalone",
+  "background_color": "#f8fbff",
+  "theme_color": "#0b6cff",
+  "icons": [
+    {
+      "src": "./assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

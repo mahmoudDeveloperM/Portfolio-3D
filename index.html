@@ -1,140 +1,596 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mahmoud Abdelrahman | 3D Frontend Portfolio</title>
-<meta name="description" content="Immersive 3D frontend portfolio by Mahmoud Abdelrahman focused on Vue/Nuxt, SEO, and performance." />
-<meta name="keywords" content="Mahmoud Abdelrahman, 3D portfolio, frontend developer, Vue.js, Nuxt.js, SEO" />
-<meta name="author" content="Mahmoud Abdelrahman" />
-<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
-<meta name="theme-color" content="#0b6cff" />
-<meta name="color-scheme" content="light" />
-<link rel="canonical" href="https://mahmouddeveloperm.github.io/Portfolio-3D/" />
-<link rel="manifest" href="./site.webmanifest" />
-<link rel="sitemap" type="application/xml" title="Sitemap" href="./sitemap.xml" />
-<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Mahmoud Abdelrahman Portfolio" />
-<meta property="og:url" content="https://mahmouddeveloperm.github.io/Portfolio-3D/" />
-<meta property="og:title" content="Mahmoud Abdelrahman | 3D Frontend Portfolio" />
-<meta property="og:description" content="3D web experiences, strong SEO, and production-grade frontend architecture." />
-<meta property="og:image" content="https://mahmouddeveloperm.github.io/Portfolio-3D/assets/social-card.svg" />
-<meta property="og:image:alt" content="3D inspired portfolio social card" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Mahmoud Abdelrahman | 3D Frontend Portfolio" />
-<meta name="twitter:description" content="3D frontend portfolio with SEO and smooth UX." />
-<meta name="twitter:image" content="https://mahmouddeveloperm.github.io/Portfolio-3D/assets/social-card.svg" />
-<meta name="twitter:image:alt" content="3D inspired portfolio social card" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Person",
-      "name": "Mahmoud Abdelrahman",
-      "jobTitle": "Frontend Developer",
-      "url": "https://mahmouddeveloperm.github.io/Portfolio-3D/",
-      "sameAs": [
-        "https://github.com/mahmoudDeveloperM",
-        "https://www.linkedin.com/in/mahmoud-abdalrahman-2baa81197/"
-      ],
-      "knowsAbout": ["Vue.js", "Nuxt.js", "SEO", "Web Performance", "3D UI"]
-    },
-    {
-      "@type": "WebSite",
-      "name": "Mahmoud Abdelrahman Portfolio",
-      "url": "https://mahmouddeveloperm.github.io/Portfolio-3D/"
-    },
-    {
-      "@type": "ItemList",
-      "name": "Featured Projects",
-      "itemListElement": [
-        {"@type": "ListItem", "position": 1, "item": {"@type": "CreativeWork", "name": "YouLearnt", "url": "https://youlearnt.com/en"}},
-        {"@type": "ListItem", "position": 2, "item": {"@type": "CreativeWork", "name": "Yaasta Car Services", "url": "https://www.yaasta.com/ar"}},
-        {"@type": "ListItem", "position": 3, "item": {"@type": "CreativeWork", "name": "Ideal Stores", "url": "https://www.idealstores.com.sa/en"}}
-      ]
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mahmoud Abdelrahman | 3D Frontend Portfolio</title>
+  <meta name="description" content="Premium 3D portfolio for Mahmoud Abdelrahman, a frontend developer focused on Vue, Nuxt, SEO, PWA, and modern web experiences." />
+  <meta name="keywords" content="Mahmoud Abdelrahman, 3D portfolio, frontend developer, Vue.js, Nuxt.js, SEO, PWA, Node.js" />
+  <meta name="author" content="Mahmoud Abdelrahman" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <meta name="theme-color" content="#07111f" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Mahmoud 3D" />
+  <link rel="canonical" href="https://mahmouddeveloperm.github.io/Portfolio-3D/" />
+  <link rel="manifest" href="./site.webmanifest" />
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Mahmoud Abdelrahman | Premium 3D Frontend Portfolio" />
+  <meta property="og:description" content="Premium 3D frontend portfolio with live projects, bilingual support, PWA install, and modern UI." />
+  <meta property="og:image" content="https://mahmouddeveloperm.github.io/Portfolio-3D/assets/social-card.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&family=Cairo:wght@500;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "name": "Mahmoud Abdelrahman",
+        "jobTitle": "Frontend Developer",
+        "url": "https://mahmouddeveloperm.github.io/Portfolio-3D/",
+        "email": "mahnoudhouda5632@gmail.com",
+        "telephone": "+2001111725505",
+        "sameAs": [
+          "https://github.com/MahmoudAbdalrhmanMohamed",
+          "https://www.linkedin.com/in/mahmoud-abdalrahman-2baa81197/"
+        ],
+        "knowsAbout": ["Vue.js", "Nuxt.js", "SEO", "PWA", "Node.js", "3D UI", "Web Performance"]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Mahmoud Abdelrahman 3D Portfolio",
+        "url": "https://mahmouddeveloperm.github.io/Portfolio-3D/"
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #050816;
+      --bg2: #07111f;
+      --text: #f8fbff;
+      --muted: #9aa8c7;
+      --panel: rgba(255,255,255,.075);
+      --panel2: rgba(255,255,255,.12);
+      --border: rgba(255,255,255,.14);
+      --blue: #38bdf8;
+      --violet: #8b5cf6;
+      --pink: #ec4899;
+      --gold: #f59e0b;
+      --green: #34d399;
+      --shadow: 0 30px 90px rgba(0,0,0,.5);
+      --radius: 28px;
+      --header: 78px;
     }
-  ]
-}
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<style>
-:root{--bg:#f8fbff;--bg2:#e5eeff;--ink:#121a2f;--soft:#415076;--brand:#0b6cff;--mint:#10bfa6;--orange:#ff7b1c;--rose:#ff4f6a;--card:rgba(255,255,255,.74);--shadow:0 16px 40px rgba(13,30,74,.16);--r:18px;--h:76px}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"Manrope","Segoe UI",sans-serif;color:var(--ink);line-height:1.6;overflow-x:clip;background:radial-gradient(circle at 10% 0%,rgba(255,123,28,.22),transparent 40%),radial-gradient(circle at 100% 0%,rgba(16,191,166,.2),transparent 45%),linear-gradient(180deg,var(--bg),var(--bg2))}
-a{color:inherit}#bg{position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.6}.grain{position:fixed;inset:0;z-index:-1;opacity:.08;pointer-events:none;background-image:radial-gradient(circle,#0f1f47 1px,transparent 1px);background-size:3px 3px}
-*:focus-visible{outline:3px solid rgba(11,108,255,.5);outline-offset:3px}.skip{position:fixed;left:1rem;top:-100%;z-index:2000;background:var(--brand);color:#fff;padding:.62rem .95rem;border-radius:10px;text-decoration:none}.skip:focus{top:1rem}.progress{position:fixed;top:0;left:0;height:4px;width:0;z-index:1500;background:linear-gradient(90deg,var(--brand),var(--mint),var(--orange))}
-.wrap{width:min(1120px,92vw);margin:0 auto}header{position:sticky;top:0;height:var(--h);z-index:1200;border-bottom:1px solid transparent;transition:.2s}header.scrolled{background:rgba(248,251,255,.74);border-color:rgba(18,26,47,.08);backdrop-filter:blur(10px)}header.open{background:rgba(248,251,255,.9);border-color:rgba(18,26,47,.12);backdrop-filter:blur(12px)}.nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem}.brand{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:1.25rem;text-decoration:none}.brand b{color:var(--brand)}.menu-btn{display:none;border:1px solid rgba(18,26,47,.16);background:rgba(255,255,255,.82);color:var(--ink);width:44px;height:40px;border-radius:12px;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px}.menu-btn span{display:block;width:18px;height:2px;background:#25447f;border-radius:999px}.menu-btn .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}.links{display:flex;gap:.45rem;flex-wrap:wrap}.links a{font-size:.95rem;font-weight:700;text-decoration:none;color:var(--soft);padding:.42rem .78rem;border-radius:999px}.links a:hover,.links a.active{background:rgba(11,108,255,.12);color:#0048b8}.cv{font-weight:700;text-decoration:none;padding:.56rem .95rem;border-radius:999px;background:linear-gradient(130deg,var(--brand),var(--mint));color:#fff}
-main section{padding:5.2rem 0}.hero{min-height:calc(100vh - var(--h));display:grid;align-items:center}.hero-grid{display:grid;grid-template-columns:1.25fr .95fr;gap:1.2rem;align-items:center}.tag{display:inline-flex;font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#0048b8;background:rgba(11,108,255,.12);padding:.32rem .8rem;border-radius:999px}.hero h1{font-family:"Space Grotesk",sans-serif;font-size:clamp(2.2rem,6vw,4.8rem);line-height:1.04;margin:.95rem 0}.hero h1 span{background:linear-gradient(130deg,var(--brand),var(--rose),var(--orange));-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{margin:0;color:var(--soft);max-width:60ch}.actions{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.55rem}.btn{font-weight:800;text-decoration:none;border-radius:999px;padding:.82rem 1.18rem;border:1px solid transparent}.btn.p{color:#fff;background:linear-gradient(130deg,var(--brand),var(--mint));box-shadow:0 10px 24px rgba(11,108,255,.22)}.btn.g{background:rgba(255,255,255,.55);border-color:rgba(18,26,47,.17)}.chips{display:flex;gap:.55rem;flex-wrap:wrap;margin-top:1.4rem}.chips span{padding:.38rem .66rem;border-radius:999px;font-size:.82rem;font-weight:700;background:rgba(255,255,255,.75);border:1px solid rgba(18,26,47,.1)}
-.card{border-radius:var(--r);background:var(--card);box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.72);padding:1.1rem}.panel h2{font-family:"Space Grotesk",sans-serif;font-size:1rem;margin:0 0 .8rem}.meter{list-style:none;margin:0;padding:0;display:grid;gap:.55rem}.meter li{display:grid;grid-template-columns:110px 1fr;gap:.58rem;align-items:center;font-size:.88rem}.meter b{color:#32456f}.bar{height:8px;border-radius:999px;overflow:hidden;background:rgba(11,108,255,.12)}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--brand),var(--mint),var(--orange))}
-.head{display:flex;justify-content:space-between;align-items:end;gap:1rem;margin-bottom:1.8rem}.head h2{margin:0;font-family:"Space Grotesk",sans-serif;font-size:clamp(1.8rem,3vw,2.6rem)}.head p{margin:0;color:var(--soft);max-width:42ch}
-.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:.95rem}.cap{grid-column:span 4}.cap h3,.proj h3{margin:0;font-family:"Space Grotesk",sans-serif}.cap p,.proj p,.about p{margin:.5rem 0 0;color:var(--soft)}.proj{grid-column:span 6;display:grid;gap:.78rem}
-.tech{display:flex;gap:.45rem;flex-wrap:wrap}.tech span{font-size:.78rem;font-weight:700;padding:.33rem .6rem;border-radius:999px;background:rgba(11,108,255,.1);color:#264178}.plinks{display:flex;gap:.5rem;flex-wrap:wrap}.plinks a{text-decoration:none;font-size:.89rem;font-weight:700;border-radius:999px;padding:.42rem .68rem;color:#0048b8;background:rgba(11,108,255,.1);border:1px solid rgba(11,108,255,.2)}
-.about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:.9rem}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem}.stats .card{text-align:center}.n{font-family:"Space Grotesk",sans-serif;font-size:2rem;font-weight:700;color:#0048b8}.l{font-size:.84rem;color:var(--soft)}
-.contact{border-radius:24px;padding:2rem;background:linear-gradient(130deg,rgba(11,108,255,.88),rgba(16,191,166,.88));color:#fff;box-shadow:0 18px 38px rgba(11,108,255,.25)}.contact h2{margin:0;font-family:"Space Grotesk",sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem)}.contact p{margin:.55rem 0 1.1rem;color:rgba(255,255,255,.9)}.clinks{display:flex;gap:.56rem;flex-wrap:wrap}.clinks a{text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,.44);background:rgba(255,255,255,.14);border-radius:999px;padding:.5rem .88rem;font-weight:700}
-footer{padding:1.6rem 0 2.1rem;color:#4e5f89;font-size:.92rem}.reveal{opacity:0;transform:translateY(20px);transition:.6s ease}.reveal.v{opacity:1;transform:none}
-*{scrollbar-width:thin;scrollbar-color:rgba(11,108,255,.7) rgba(214,226,255,.7)}*::-webkit-scrollbar{width:12px}*::-webkit-scrollbar-track{background:rgba(214,226,255,.6)}*::-webkit-scrollbar-thumb{border-radius:999px;border:2px solid rgba(214,226,255,.7);background:linear-gradient(180deg,var(--brand),var(--mint),var(--orange))}
-@media (max-width:1024px){.hero-grid,.about-grid{grid-template-columns:1fr}.cap{grid-column:span 6}}
-@media (max-width:760px){header{height:auto;position:fixed;left:0;top:0;width:100%}main{margin-top:90px}.nav{height:auto;padding:.7rem 0;display:grid;grid-template-columns:1fr auto;align-items:center;gap:.6rem}.menu-btn{display:flex;justify-self:end}.links{display:none;grid-column:1/-1;width:100%;flex-direction:column;gap:.35rem;padding:.3rem 0}.links a{display:block;text-align:center;background:rgba(11,108,255,.08);border:1px solid rgba(11,108,255,.12)}header.open .links{display:flex}.cv{display:none;grid-column:1/-1;text-align:center;justify-self:stretch}header.open .cv{display:block}.hero{min-height:auto;padding-top:2.1rem}.cap,.proj{grid-column:span 12}.stats{grid-template-columns:1fr}.head{flex-direction:column;align-items:start}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}#bg{opacity:.24}.reveal{opacity:1;transform:none}}
-</style>
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family: Inter, system-ui, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(139,92,246,.32), transparent 32%),
+        radial-gradient(circle at 85% 20%, rgba(56,189,248,.22), transparent 34%),
+        radial-gradient(circle at 55% 95%, rgba(245,158,11,.13), transparent 34%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      line-height: 1.65;
+    }
+    html[dir="rtl"] body { font-family: Cairo, Inter, sans-serif; }
+    a { color: inherit; text-decoration: none; }
+    canvas#bg { position: fixed; inset: 0; z-index: -3; width: 100%; height: 100%; opacity: .9; }
+    .noise { position: fixed; inset: 0; z-index: -2; pointer-events: none; opacity: .07; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+    .grid-bg { position: fixed; inset: 0; z-index: -1; pointer-events: none; background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px); background-size: 46px 46px; mask-image: linear-gradient(to bottom, black, transparent 82%); }
+    .progress { position: fixed; top: 0; left: 0; z-index: 2000; height: 4px; width: 0; background: linear-gradient(90deg, var(--violet), var(--blue), var(--gold)); }
+    .container { width: 100%; margin: 0; padding-left: clamp(18px, 5vw, 78px); padding-right: clamp(18px, 5vw, 78px); }
+    header { position: fixed; top: 0; left: 0; right: 0; z-index: 1200; height: var(--header); border-bottom: 1px solid rgba(255,255,255,.08); background: rgba(5,8,22,.58); backdrop-filter: blur(18px); }
+    .nav { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 900; letter-spacing: -.04em; }
+    html[dir="rtl"] .brand { letter-spacing: 0; }
+    .brand-mark { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 16px; background: linear-gradient(135deg, var(--violet), var(--blue)); box-shadow: 0 16px 42px rgba(139,92,246,.36); }
+    .links { display: flex; align-items: center; gap: 8px; }
+    .links a { padding: 10px 13px; border-radius: 999px; color: var(--muted); font-size: .92rem; font-weight: 800; transition: .25s; }
+    .links a:hover, .links a.active { color: var(--text); background: rgba(255,255,255,.08); }
+    .actions-nav { display: flex; align-items: center; gap: 10px; }
+    button, .small-btn { border: 1px solid var(--border); background: var(--panel); color: var(--text); border-radius: 14px; padding: 10px 12px; cursor: pointer; font-weight: 900; transition: .25s; }
+    button:hover, .small-btn:hover { background: var(--panel2); transform: translateY(-2px); }
+    #installBtn { display: none; }
+    #menuBtn { display: none; }
+    main { padding-top: var(--header); }
+    section { padding: 105px 0; scroll-margin-top: 92px; }
+    .hero { min-height: calc(100vh - var(--header)); display: grid; align-items: center; }
+    .hero-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 56px; align-items: center; }
+    .pill { display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--border); background: rgba(255,255,255,.06); color: var(--muted); padding: 9px 14px; border-radius: 999px; font-weight: 900; font-size: .84rem; backdrop-filter: blur(12px); }
+    .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); box-shadow: 0 0 22px var(--green); }
+    h1, h2, h3 { font-family: "Space Grotesk", Inter, sans-serif; letter-spacing: -.045em; }
+    html[dir="rtl"] h1, html[dir="rtl"] h2, html[dir="rtl"] h3 { font-family: Cairo, Inter, sans-serif; letter-spacing: 0; }
+    h1 { margin: 22px 0 18px; font-size: clamp(3.2rem, 8vw, 7.8rem); line-height: .88; }
+    html[dir="rtl"] h1 { line-height: 1.05; }
+    .grad { background: linear-gradient(120deg, #fff, #c4d7ff 28%, var(--blue) 58%, var(--gold)); -webkit-background-clip: text; color: transparent; text-shadow: 0 0 60px rgba(56,189,248,.22); }
+    .hero p { color: var(--muted); font-size: 1.12rem; max-width: 720px; margin-bottom: 28px; }
+    .cta { display: flex; flex-wrap: wrap; gap: 13px; margin-bottom: 30px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 20px; border-radius: 999px; font-weight: 900; border: 1px solid var(--border); transition: .25s; }
+    .btn:hover { transform: translateY(-4px); }
+    .btn.primary { border: 0; color: white; background: linear-gradient(135deg, var(--violet), var(--blue)); box-shadow: 0 18px 44px rgba(139,92,246,.36); }
+    .btn.ghost { background: var(--panel); backdrop-filter: blur(15px); }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 720px; }
+    .stat { border: 1px solid var(--border); background: var(--panel); border-radius: 22px; padding: 18px; backdrop-filter: blur(16px); }
+    .stat strong { display: block; font-size: 1.5rem; }
+    .stat span { color: var(--muted); font-size: .86rem; }
+    .orb-card { min-height: 620px; position: relative; border-radius: 38px; border: 1px solid var(--border); background: linear-gradient(145deg, rgba(255,255,255,.16), rgba(255,255,255,.04)); box-shadow: var(--shadow); overflow: hidden; backdrop-filter: blur(20px); transform-style: preserve-3d; perspective: 1200px; }
+    .orb-card::before, .orb-card::after { content: ""; position: absolute; border-radius: 999px; filter: blur(10px); animation: float 7s ease-in-out infinite; }
+    .orb-card::before { width: 210px; height: 210px; top: 44px; right: 48px; background: linear-gradient(135deg, var(--blue), var(--violet)); }
+    .orb-card::after { width: 150px; height: 150px; bottom: 70px; left: 42px; background: linear-gradient(135deg, var(--gold), var(--pink)); animation-delay: -2s; }
+    @keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-24px) rotate(9deg); } }
+    .code { position: absolute; left: 34px; right: 34px; bottom: 34px; z-index: 6; border-radius: 24px; overflow: hidden; background: rgba(5,8,22,.78); border: 1px solid rgba(255,255,255,.16); box-shadow: 0 24px 70px rgba(0,0,0,.44); direction: ltr; text-align: left; transform: translateZ(90px) rotateX(7deg) rotateY(-8deg); }
+
+    .scene-3d {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      transform-style: preserve-3d;
+      perspective: 1100px;
+      z-index: 4;
+    }
+
+    .cube-wrap {
+      position: relative;
+      width: 210px;
+      height: 210px;
+      transform-style: preserve-3d;
+      animation: cubeSpin 12s linear infinite;
+    }
+
+    .cube-face {
+      position: absolute;
+      width: 210px;
+      height: 210px;
+      border: 1px solid rgba(255,255,255,.24);
+      background:
+        linear-gradient(135deg, rgba(139,92,246,.28), rgba(56,189,248,.16)),
+        rgba(255,255,255,.06);
+      box-shadow: inset 0 0 40px rgba(56,189,248,.12), 0 0 40px rgba(139,92,246,.18);
+      backdrop-filter: blur(10px);
+      display: grid;
+      place-items: center;
+      color: rgba(255,255,255,.86);
+      font-weight: 900;
+      font-size: 1.05rem;
+    }
+
+    .cube-front { transform: translateZ(105px); }
+    .cube-back { transform: rotateY(180deg) translateZ(105px); }
+    .cube-right { transform: rotateY(90deg) translateZ(105px); }
+    .cube-left { transform: rotateY(-90deg) translateZ(105px); }
+    .cube-top { transform: rotateX(90deg) translateZ(105px); }
+    .cube-bottom { transform: rotateX(-90deg) translateZ(105px); }
+
+    .orbit-ring {
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      border: 1px solid rgba(56,189,248,.36);
+      border-radius: 50%;
+      transform-style: preserve-3d;
+      animation: orbitSpin 9s linear infinite;
+    }
+
+    .orbit-ring:nth-child(2) { transform: rotateX(72deg); border-color: rgba(245,158,11,.34); animation-duration: 11s; }
+    .orbit-ring:nth-child(3) { transform: rotateY(72deg); border-color: rgba(236,72,153,.32); animation-duration: 13s; }
+
+    .float-chip {
+      position: absolute;
+      z-index: 7;
+      padding: 10px 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.09);
+      color: var(--text);
+      font-size: .82rem;
+      font-weight: 900;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 18px 40px rgba(0,0,0,.28);
+      animation: chipFloat 4s ease-in-out infinite;
+    }
+
+    .chip-a { top: 72px; left: 52px; transform: translateZ(140px) rotateY(14deg); }
+    .chip-b { top: 96px; right: 44px; transform: translateZ(170px) rotateY(-16deg); animation-delay: -1.2s; }
+    .chip-c { bottom: 220px; left: 70px; transform: translateZ(120px) rotateX(12deg); animation-delay: -2.1s; }
+
+    @keyframes cubeSpin {
+      from { transform: rotateX(-18deg) rotateY(0deg) rotateZ(0deg); }
+      to { transform: rotateX(-18deg) rotateY(360deg) rotateZ(360deg); }
+    }
+
+    @keyframes orbitSpin {
+      from { rotate: 0deg; }
+      to { rotate: 360deg; }
+    }
+
+    @keyframes chipFloat {
+      0%,100% { translate: 0 0; }
+      50% { translate: 0 -14px; }
+    }
+    .code-top { display: flex; gap: 8px; padding: 14px; background: rgba(255,255,255,.08); }
+    .code-top span { width: 11px; height: 11px; border-radius: 999px; background: var(--pink); }
+    .code-top span:nth-child(2) { background: var(--gold); }
+    .code-top span:nth-child(3) { background: var(--green); }
+    pre { padding: 22px; overflow: auto; color: #dce9ff; font-size: .92rem; }
+    .c1 { color: #c4b5fd; } .c2 { color: var(--green); } .c3 { color: var(--gold); } .c4 { color: var(--blue); }
+    .section-head { max-width: 840px; margin-bottom: 42px; }
+    .eyebrow { color: var(--blue); text-transform: uppercase; letter-spacing: .2em; font-size: .78rem; font-weight: 900; margin-bottom: 12px; }
+    html[dir="rtl"] .eyebrow { letter-spacing: .05em; }
+    .section-head h2 { font-size: clamp(2.2rem, 5vw, 4.6rem); line-height: 1; }
+    html[dir="rtl"] .section-head h2 { line-height: 1.1; }
+    .section-head p { color: var(--muted); margin-top: 16px; }
+    .grid { display: grid; gap: 18px; }
+    .cap-grid { grid-template-columns: repeat(3, 1fr); }
+    .project-grid { grid-template-columns: repeat(3, 1fr); }
+    .card { position: relative; border: 1px solid var(--border); background: var(--panel); border-radius: var(--radius); padding: 26px; box-shadow: 0 18px 54px rgba(0,0,0,.26); backdrop-filter: blur(18px); overflow: hidden; transition: .28s; }
+    .card::before { content: ""; position: absolute; inset: 0; opacity: 0; background: radial-gradient(circle at 20% 0%, rgba(56,189,248,.16), transparent 36%); transition: .28s; }
+    .card:hover { transform: translateY(-10px); border-color: rgba(56,189,248,.34); box-shadow: 0 32px 80px rgba(56,189,248,.12); }
+    .card:hover::before { opacity: 1; }
+    .card > * { position: relative; z-index: 2; }
+    .card h3 { font-size: 1.3rem; margin-bottom: 10px; }
+    .card p { color: var(--muted); }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .tag { padding: 7px 10px; border-radius: 999px; color: #dbeafe; background: rgba(139,92,246,.18); border: 1px solid rgba(139,92,246,.28); font-size: .82rem; font-weight: 800; }
+    .filters { display: flex; flex-wrap: wrap; gap: 10px; margin: -20px 0 34px; }
+    .filter.active { color: white; background: linear-gradient(135deg, rgba(139,92,246,.45), rgba(56,189,248,.25)); border-color: rgba(56,189,248,.42); }
+    .project { min-height: 340px; display: flex; flex-direction: column; justify-content: space-between; }
+    .project-top { display: flex; justify-content: space-between; gap: 14px; }
+    .number { color: rgba(255,255,255,.2); font-size: 2.6rem; font-weight: 900; line-height: 1; }
+    .project-link { color: var(--blue); font-weight: 900; margin-top: 18px; display: inline-flex; }
+    .project.hidden { display: none; }
+    .about-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 18px; align-items: stretch; }
+    .timeline { display: grid; gap: 14px; }
+    .line { display: grid; grid-template-columns: 130px 1fr; gap: 16px; }
+    .date { color: var(--gold); font-weight: 900; }
+    .contact-card { text-align: center; border-radius: 38px; padding: clamp(32px, 6vw, 74px); border: 1px solid var(--border); background: linear-gradient(135deg, rgba(139,92,246,.28), rgba(56,189,248,.14)), var(--panel); box-shadow: var(--shadow); }
+    .contact-card h2 { font-size: clamp(2.4rem, 6vw, 5rem); line-height: .95; margin-bottom: 16px; }
+    html[dir="rtl"] .contact-card h2 { line-height: 1.1; }
+    .contact-card p { max-width: 720px; margin: 0 auto 28px; color: var(--muted); }
+    .contact-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+    footer { padding: 34px 0; color: var(--muted); border-top: 1px solid rgba(255,255,255,.08); }
+    .toast { position: fixed; left: 50%; bottom: 24px; z-index: 2200; transform: translateX(-50%) translateY(140%); padding: 12px 16px; border-radius: 999px; color: white; background: rgba(5,8,22,.9); border: 1px solid var(--border); box-shadow: var(--shadow); transition: .3s; }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .72s ease, transform .72s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    @media (max-width: 980px) { .hero-grid, .about-grid { grid-template-columns: 1fr; } .cap-grid, .project-grid { grid-template-columns: repeat(2, 1fr); } .orb-card { min-height: 430px; } }
+    @media (max-width: 740px) { .links { position: absolute; top: var(--header); left: 18px; right: 18px; display: none; flex-direction: column; padding: 14px; border: 1px solid var(--border); border-radius: 22px; background: rgba(5,8,22,.95); } .links.open { display: flex; } #menuBtn { display: inline-flex; } #installBtn { display: none !important; } section { padding: 78px 0; } h1 { font-size: clamp(3rem, 16vw, 5rem); } .stats, .cap-grid, .project-grid { grid-template-columns: 1fr; } .orb-card { min-height: 520px; } .cube-wrap { width: 150px; height: 150px; } .cube-face { width: 150px; height: 150px; } .cube-front { transform: translateZ(75px); } .cube-back { transform: rotateY(180deg) translateZ(75px); } .cube-right { transform: rotateY(90deg) translateZ(75px); } .cube-left { transform: rotateY(-90deg) translateZ(75px); } .cube-top { transform: rotateX(90deg) translateZ(75px); } .cube-bottom { transform: rotateX(-90deg) translateZ(75px); } .orbit-ring { width: 260px; height: 260px; } .code { left: 18px; right: 18px; bottom: 24px; } .chip-a { top: 44px; left: 24px; } .chip-b { top: 60px; right: 24px; } .chip-c { bottom: 190px; left: 34px; } pre { font-size: .76rem; } .line { grid-template-columns: 1fr; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } .reveal { opacity: 1; transform: none; } }
+  </style>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<canvas id="bg" aria-hidden="true"></canvas><div class="grain" aria-hidden="true"></div><div class="progress" id="progress" aria-hidden="true"></div>
-<header id="hdr"><div class="wrap nav"><a class="brand" href="#home"><b>M.</b> Abdelrahman</a><button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="primaryNav"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><span class="sr-only">Toggle menu</span></button><nav class="links" id="primaryNav" aria-label="Primary"><a href="#home">Home</a><a href="#capabilities">Capabilities</a><a href="#projects">Projects</a><a href="#about">About</a><a href="#contact">Contact</a></nav><a class="cv" href="./cv.pdf" download>Download CV</a></div></header>
-<main id="main">
-<section id="home" class="hero"><div class="wrap hero-grid"><div class="reveal"><span class="tag">3D Frontend Engineering</span><h1>Designing product interfaces that feel <span>alive, clear, and fast</span></h1><p>I build multilingual Vue and Nuxt platforms with strong SEO foundations, refined interaction systems, and lightweight 3D layers that support the story without hurting performance.</p><div class="actions"><a class="btn p" href="#projects">Explore Projects</a><a class="btn g" href="mailto:mahnoudhouda5632523@gmail.com">Start a Conversation</a></div><div class="chips"><span>10+ shipped projects</span><span>SEO + Core Web Vitals focus</span><span>Arabic/English experiences</span></div></div><aside class="card panel reveal" aria-label="Delivery snapshot"><h2>Delivery Snapshot</h2><ul class="meter"><li><b>UX quality</b><div class="bar"><i style="width:96%"></i></div></li><li><b>Performance</b><div class="bar"><i style="width:92%"></i></div></li><li><b>SEO depth</b><div class="bar"><i style="width:95%"></i></div></li><li><b>Accessibility</b><div class="bar"><i style="width:90%"></i></div></li></ul></aside></div></section>
-<section id="capabilities"><div class="wrap"><div class="head reveal"><h2>Core Capabilities</h2><p>End-to-end frontend delivery with measurable search visibility and smooth navigation behavior.</p></div><div class="grid"><article class="card cap reveal"><h3>3D-Enhanced Interfaces</h3><p>Purposeful Three.js scenes and depth effects tuned for readability and speed.</p></article><article class="card cap reveal"><h3>Product-Ready Frontend</h3><p>Vue/Nuxt applications with reusable components and maintainable architecture.</p></article><article class="card cap reveal"><h3>SEO & Discoverability</h3><p>Technical SEO, schema, semantic markup, and crawler-ready support files.</p></article></div></div></section>
-<section id="projects"><div class="wrap"><div class="head reveal"><h2>Selected Projects</h2><p>Different domains, same delivery principle: stable architecture, strong UX, and measurable outcomes.</p></div><div class="grid"><article class="card proj reveal"><h3>YouLearnt (New Featured Project)</h3><p>A modern learning platform focused on clear course discovery, conversion-oriented page flow, and technical SEO improvements for stronger search reach and better learner onboarding.</p><div class="tech"><span>Nuxt.js</span><span>Vue.js</span><span>SEO Strategy</span><span>Conversion UX</span></div><div class="plinks"><a href="https://youlearnt.com/en" target="_blank" rel="noopener noreferrer">Live Site</a><a href="https://youlearnt.com/en" target="_blank" rel="noopener noreferrer">Project URL</a></div></article><article class="card proj reveal"><h3>Yaasta Car Services</h3><p>Multilingual services platform with optimized route-level content and smoother UX.</p><div class="tech"><span>Nuxt.js</span><span>PWA</span><span>Arabic UX</span><span>Performance</span></div><div class="plinks"><a href="https://www.yaasta.com/ar" target="_blank" rel="noopener noreferrer">Live Site</a><a href="https://github.com/mahmoudDeveloperM/Yaasta-Car-Services" target="_blank" rel="noopener noreferrer">Source Code</a></div></article><article class="card proj reveal"><h3>Ideal Stores</h3><p>Storefront and admin dashboard with SEO-aligned templates and multilingual delivery.</p><div class="tech"><span>Vue.js</span><span>Nuxt.js</span><span>Tailwind CSS</span><span>PWA</span></div><div class="plinks"><a href="https://www.idealstores.com.sa/en" target="_blank" rel="noopener noreferrer">Live Site</a><a href="https://github.com/mahmoudDeveloperM/Ideal-Stores" target="_blank" rel="noopener noreferrer">Source Code</a></div></article><article class="card proj reveal"><h3>Portfolio 3D Experience</h3><p>Refreshed personal portfolio with layered 3D background, smoother anchor motion, and complete technical SEO setup.</p><div class="tech"><span>Three.js</span><span>Semantic HTML</span><span>JSON-LD</span><span>Accessibility</span></div><div class="plinks"><a href="#home">View Experience</a></div></article></div></div></section>
-<section id="about"><div class="wrap about-grid"><article class="card about reveal"><div class="head" style="margin-bottom:.8rem"><h2>About Me</h2></div><p>I am a frontend developer based in Egypt, focused on interfaces that scale. My process balances visual clarity, technical precision, and practical SEO from day one for product pages, dashboards, and marketing experiences where speed and trust matter.</p></article><div class="stats"><article class="card reveal"><div class="n" data-target="10">0</div><div class="l">Projects Delivered</div></article><article class="card reveal"><div class="n" data-target="2">0</div><div class="l">Core Frameworks</div></article><article class="card reveal"><div class="n" data-target="1000">0</div><div class="l">Records Managed</div></article><article class="card reveal"><div class="n" data-target="98">0</div><div class="l">Lighthouse SEO Target</div></article></div></div></section>
-<section id="contact"><div class="wrap"><article class="contact reveal"><h2>Need a high-impact frontend build?</h2><p>I can help you ship a polished, search-friendly product experience with clear architecture and motion that supports the content.</p><div class="clinks"><a href="mailto:mahnoudhouda5632523@gmail.com">Email</a><a href="https://www.linkedin.com/in/mahmoud-abdalrahman-2baa81197/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/mahmoudDeveloperM?tab=repositories" target="_blank" rel="noopener noreferrer">GitHub</a><a href="./cv.pdf" download>Download CV</a></div></article></div></section>
-</main>
-<footer><div class="wrap">&copy; 2026 Mahmoud Abdelrahman. Crafted for performance, accessibility, and discoverability.</div></footer>
-<script>
-(()=>{
-const reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const hdr=document.getElementById("hdr");
-const menuBtn=document.getElementById("menuBtn");
-const progress=document.getElementById("progress");
-const nav=[...document.querySelectorAll(".links a")];
-const reveal=[...document.querySelectorAll(".reveal")];
-const sections=[...document.querySelectorAll("main section[id]")];
-let ticking=false;
-const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
-function ui(){const y=window.scrollY,max=document.documentElement.scrollHeight-window.innerHeight;progress.style.width=((max>0?y/max:0)*100).toFixed(2)+"%";hdr.classList.toggle("scrolled",y>24);ticking=false}
-window.addEventListener("scroll",()=>{if(!ticking){ticking=true;requestAnimationFrame(ui)}},{passive:true});ui();
-const closeMenu=()=>{hdr.classList.remove("open");if(menuBtn)menuBtn.setAttribute("aria-expanded","false")};
-if(menuBtn){menuBtn.addEventListener("click",()=>{const open=hdr.classList.toggle("open");menuBtn.setAttribute("aria-expanded",String(open))})}
-nav.forEach(a=>a.addEventListener("click",()=>{if(window.innerWidth<=760)closeMenu()}));
-window.addEventListener("resize",()=>{if(window.innerWidth>760)closeMenu()});
-const navObserver=new IntersectionObserver((es)=>{es.forEach(e=>{if(!e.isIntersecting)return;const id=e.target.id;nav.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+id));})},{threshold:.45});sections.forEach(s=>navObserver.observe(s));
-const revObserver=new IntersectionObserver((es,o)=>{es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add("v");o.unobserve(e.target);})},{threshold:.18});reveal.forEach(el=>revObserver.observe(el));
-function smoothTo(target,d=760){const sy=window.scrollY,diff=target-sy,start=performance.now();const step=now=>{const p=Math.min((now-start)/d,1);window.scrollTo(0,sy+diff*ease(p));if(p<1)requestAnimationFrame(step)};requestAnimationFrame(step)}
-[...document.querySelectorAll('a[href^="#"]')].forEach(a=>a.addEventListener("click",e=>{const h=a.getAttribute("href");if(!h||h==="#")return;const t=document.querySelector(h);if(!t)return;e.preventDefault();const y=t.getBoundingClientRect().top+window.scrollY-72;if(reduced){window.scrollTo(0,y);return;}smoothTo(y);}));
-const countObs=new IntersectionObserver((es,o)=>{es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,target=Number(el.dataset.target),dur=reduced?0:1200,s=performance.now();const f=now=>{if(dur===0){el.textContent=target+"+";return;}const p=Math.min((now-s)/dur,1);el.textContent=Math.floor(target*ease(p))+"+";if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f);o.unobserve(el);})},{threshold:.45});document.querySelectorAll(".n").forEach(n=>countObs.observe(n));
-if(!window.THREE)return;
-const canvas=document.getElementById("bg");if(!canvas)return;
-const scene=new THREE.Scene();
-const camera=new THREE.PerspectiveCamera(60,window.innerWidth/window.innerHeight,.1,1500);camera.position.set(0,0,110);
-const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true,powerPreference:"high-performance"});renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));renderer.setSize(window.innerWidth,window.innerHeight);
-scene.add(new THREE.AmbientLight(0xffffff,.76));const dl=new THREE.DirectionalLight(0x6ea7ff,.8);dl.position.set(80,80,120);scene.add(dl);
-const g=new THREE.BufferGeometry(),count=reduced?700:1600,pos=new Float32Array(count*3),col=new Float32Array(count*3),c=new THREE.Color();
-for(let i=0;i<count;i++){const i3=i*3,r=240+Math.random()*450,t=Math.random()*Math.PI*2,p=Math.acos(2*Math.random()-1);pos[i3]=r*Math.sin(p)*Math.cos(t);pos[i3+1]=r*Math.sin(p)*Math.sin(t);pos[i3+2]=r*Math.cos(p);c.setHSL(.54+Math.random()*.14,.72,.55+Math.random()*.2);col[i3]=c.r;col[i3+1]=c.g;col[i3+2]=c.b}
-g.setAttribute("position",new THREE.BufferAttribute(pos,3));g.setAttribute("color",new THREE.BufferAttribute(col,3));
-const points=new THREE.Points(g,new THREE.PointsMaterial({size:reduced?2.2:2.8,transparent:true,opacity:.84,vertexColors:true,blending:THREE.AdditiveBlending,depthWrite:false}));scene.add(points);
-const m1=new THREE.MeshStandardMaterial({color:0x0b6cff,wireframe:true,transparent:true,opacity:.22});
-const m2=new THREE.MeshStandardMaterial({color:0xff7b1c,wireframe:true,transparent:true,opacity:.24});
-const k1=new THREE.Mesh(new THREE.TorusKnotGeometry(20,5,150,24),m1);k1.position.set(-50,-35,-120);scene.add(k1);
-const k2=new THREE.Mesh(new THREE.IcosahedronGeometry(30,1),m2);k2.position.set(75,45,-170);scene.add(k2);
-const pointer={x:0,y:0};
-window.addEventListener("pointermove",e=>{pointer.x=e.clientX/window.innerWidth*2-1;pointer.y=-(e.clientY/window.innerHeight)*2+1;},{passive:true});
-window.addEventListener("resize",()=>{camera.aspect=window.innerWidth/window.innerHeight;camera.updateProjectionMatrix();renderer.setSize(window.innerWidth,window.innerHeight);renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));});
-(function anim(){const m=reduced?.35:1;points.rotation.y+=.0009*m;points.rotation.x+=.00035*m;k1.rotation.x+=.003*m;k1.rotation.y+=.0024*m;k2.rotation.x-=.0024*m;k2.rotation.y+=.0017*m;camera.position.x+=(pointer.x*12-camera.position.x)*.03;camera.position.y+=(pointer.y*8-camera.position.y)*.03;camera.lookAt(0,0,-120);renderer.render(scene,camera);requestAnimationFrame(anim);})();
-})();
-</script>
+  <canvas id="bg" aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <div class="toast" id="toast">Ready offline</div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home"><span class="brand-mark">M</span><span data-i18n="brand">Mahmoud 3D</span></a>
+      <nav class="links" id="navLinks" aria-label="Main navigation">
+        <a href="#home" data-i18n="navHome">Home</a>
+        <a href="#capabilities" data-i18n="navCapabilities">Capabilities</a>
+        <a href="#projects" data-i18n="navProjects">Projects</a>
+        <a href="#about" data-i18n="navAbout">About</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
+      </nav>
+      <div class="actions-nav">
+        <button id="installBtn" type="button" data-i18n="install">Install</button>
+        <button id="langBtn" type="button" aria-label="Toggle language">AR</button>
+        <button id="menuBtn" type="button" aria-label="Toggle menu" data-i18n="menu">Menu</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="pill"><span class="dot"></span><span data-i18n="status">Available for premium frontend work</span></div>
+          <h1><span class="grad" data-i18n="heroTitle">3D frontend experiences</span><br><span data-i18n="heroLine">that feel fast and alive.</span></h1>
+          <p data-i18n="heroDesc">I build Vue/Nuxt products, dashboards, SEO-friendly websites, and lightweight 3D interfaces with polished UX, bilingual support, and production-ready code.</p>
+          <div class="cta">
+            <a class="btn primary" href="#projects" data-i18n="viewProjects">View Projects</a>
+            <a class="btn ghost" href="mailto:mahnoudhouda5632@gmail.com" data-i18n="emailMe">Email Me</a>
+            <a class="btn ghost" href="tel:+2001111725505" data-i18n="callMe">Call Me</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong>18+</strong><span data-i18n="metricProjects">Live & GitHub projects</span></div>
+            <div class="stat"><strong>Vue/Nuxt</strong><span data-i18n="metricStack">Main frontend stack</span></div>
+            <div class="stat"><strong>SEO + PWA</strong><span data-i18n="metricFocus">Performance focus</span></div>
+          </div>
+        </div>
+        <aside class="orb-card reveal" aria-hidden="true">
+          <div class="scene-3d">
+            <div class="orbit-ring"></div>
+            <div class="orbit-ring"></div>
+            <div class="orbit-ring"></div>
+            <div class="cube-wrap">
+              <div class="cube-face cube-front">Vue</div>
+              <div class="cube-face cube-back">Nuxt</div>
+              <div class="cube-face cube-right">PWA</div>
+              <div class="cube-face cube-left">SEO</div>
+              <div class="cube-face cube-top">3D</div>
+              <div class="cube-face cube-bottom">API</div>
+            </div>
+          </div>
+          <div class="float-chip chip-a">Three.js</div>
+          <div class="float-chip chip-b">Premium UI</div>
+          <div class="float-chip chip-c">WebGL</div>
+          <div class="code">
+            <div class="code-top"><span></span><span></span><span></span></div>
+            <pre><code><span class="c1">const</span> portfolio = {
+  type: <span class="c2">"3D Premium"</span>,
+  stack: [<span class="c3">"Vue"</span>, <span class="c3">"Nuxt"</span>, <span class="c3">"Three.js"</span>],
+  features: [<span class="c4">"PWA"</span>, <span class="c4">"EN/AR"</span>, <span class="c4">"SEO"</span>],
+  contact: <span class="c2">"mahnoudhouda5632@gmail.com"</span>
+};</code></pre>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="capabilities">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow" data-i18n="capEyebrow">Capabilities</div>
+          <h2 data-i18n="capTitle">Premium interfaces with motion, clarity, and measurable quality.</h2>
+          <p data-i18n="capDesc">I keep 3D purposeful: it supports the message, adds depth, and stays lightweight enough for real users.</p>
+        </div>
+        <div class="grid cap-grid">
+          <article class="card reveal"><h3 data-i18n="cap1Title">3D Visual Systems</h3><p data-i18n="cap1Desc">Three.js scenes, depth, animated particles, and interactive motion with performance in mind.</p><div class="tags"><span class="tag">Three.js</span><span class="tag">Motion</span><span class="tag">WebGL</span></div></article>
+          <article class="card reveal"><h3 data-i18n="cap2Title">Frontend Products</h3><p data-i18n="cap2Desc">Vue/Nuxt websites, dashboards, stores, and responsive product pages built for production.</p><div class="tags"><span class="tag">Vue</span><span class="tag">Nuxt</span><span class="tag">UI</span></div></article>
+          <article class="card reveal"><h3 data-i18n="cap3Title">SEO + PWA Delivery</h3><p data-i18n="cap3Desc">Semantic markup, metadata, installable app behavior, and offline-ready user experience.</p><div class="tags"><span class="tag">SEO</span><span class="tag">PWA</span><span class="tag">Schema</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow" data-i18n="projectsEyebrow">Selected Work</div>
+          <h2 data-i18n="projectsTitle">Live projects first, source code where useful.</h2>
+          <p data-i18n="projectsDesc">Switch between frontend and backend-style work.</p>
+        </div>
+        <div class="filters reveal">
+          <button class="filter active" type="button" data-filter="all" data-i18n="filterAll">All</button>
+          <button class="filter" type="button" data-filter="frontend" data-i18n="filterFrontend">Frontend</button>
+          <button class="filter" type="button" data-filter="backend" data-i18n="filterBackend">Backend</button>
+        </div>
+        <div class="grid project-grid">
+          <article class="card project reveal" data-type="frontend"><div><div class="project-top"><h3>Book Store Platform</h3><span class="number">01</span></div><p>Live multilingual book platform with SEO-focused structure and polished browsing.</p><div class="tags"><span class="tag">Live</span><span class="tag">Nuxt</span><span class="tag">SEO</span></div></div><a class="project-link" href="https://www.ysk-book.com/en" target="_blank" rel="noopener">Open live →</a></article>
+          <article class="card project reveal" data-type="frontend"><div><div class="project-top"><h3>Comics Platform</h3><span class="number">02</span></div><p>Live comics content platform with reading flow, discovery, and dashboard-oriented structure.</p><div class="tags"><span class="tag">Live</span><span class="tag">Content</span><span class="tag">Vue</span></div></div><a class="project-link" href="https://www.ysk-comics.com/en" target="_blank" rel="noopener">Open live →</a></article>
+          <article class="card project reveal" data-type="frontend"><div><div class="project-top"><h3>Megatron Company</h3><span class="number">03</span></div><p>Live corporate website with strong service presentation and responsive experience.</p><div class="tags"><span class="tag">Live</span><span class="tag">Corporate</span><span class="tag">SEO</span></div></div><a class="project-link" href="https://www.megatron-soft.com/en" target="_blank" rel="noopener">Open live →</a></article>
+          <article class="card project reveal" data-type="frontend"><div><div class="project-top"><h3>SADR Website</h3><span class="number">04</span></div><p>Live website and dashboard ecosystem with scalable UI and content structure.</p><div class="tags"><span class="tag">Live</span><span class="tag">Dashboard</span><span class="tag">Nuxt</span></div></div><a class="project-link" href="https://www.sadr.com.sa/en" target="_blank" rel="noopener">Open live →</a></article>
+          <article class="card project reveal" data-type="frontend"><div><div class="project-top"><h3>Yaasta Car Services</h3><span class="number">05</span></div><p>Arabic-first car services platform with mobile-friendly service browsing.</p><div class="tags"><span class="tag">Live</span><span class="tag">Arabic UX</span><span class="tag">Services</span></div></div><a class="project-link" href="https://www.yaasta.com/ar" target="_blank" rel="noopener">Open live →</a></article>
+          <article class="card project reveal" data-type="frontend"><div><div class="project-top"><h3>Ideal Stores</h3><span class="number">06</span></div><p>Live store interface with commerce-style pages and responsive frontend polish.</p><div class="tags"><span class="tag">Live</span><span class="tag">Store</span><span class="tag">Frontend</span></div></div><a class="project-link" href="https://www.idealstores.com.sa/en" target="_blank" rel="noopener">Open live →</a></article>
+          <article class="card project reveal" data-type="frontend"><div><div class="project-top"><h3>YouLearnt</h3><span class="number">07</span></div><p>Learning platform with clean course discovery and SEO-friendly page structure.</p><div class="tags"><span class="tag">Live</span><span class="tag">Education</span><span class="tag">SEO</span></div></div><a class="project-link" href="https://youlearnt.com/en" target="_blank" rel="noopener">Open live →</a></article>
+          <article class="card project reveal" data-type="frontend"><div><div class="project-top"><h3>Portfolio 3D</h3><span class="number">08</span></div><p>This upgraded 3D portfolio with bilingual UI, filters, PWA support, and Three.js visuals.</p><div class="tags"><span class="tag">3D</span><span class="tag">PWA</span><span class="tag">EN/AR</span></div></div><a class="project-link" href="https://github.com/mahmoudDeveloperM/Portfolio-3D" target="_blank" rel="noopener">View repo →</a></article>
+          <article class="card project reveal" data-type="backend"><div><div class="project-top"><h3>Task Manager API</h3><span class="number">09</span></div><p>Backend-style task manager project for CRUD workflows and task data handling.</p><div class="tags"><span class="tag">Node.js</span><span class="tag">API</span><span class="tag">Backend</span></div></div><a class="project-link" href="https://github.com/MahmoudAbdalrhmanMohamed/task-manger" target="_blank" rel="noopener">View repo →</a></article>
+          <article class="card project reveal" data-type="backend"><div><div class="project-top"><h3>Store Backend API</h3><span class="number">10</span></div><p>Backend-style store application for products, store logic, and API workflows.</p><div class="tags"><span class="tag">Node.js</span><span class="tag">Store</span><span class="tag">Backend</span></div></div><a class="project-link" href="https://github.com/MahmoudAbdalrhmanMohamed/store-application" target="_blank" rel="noopener">View repo →</a></article>
+          <article class="card project reveal" data-type="backend"><div><div class="project-top"><h3>Dashboard Assignment API</h3><span class="number">11</span></div><p>Backend-style assignment project for dashboard data structure and API-driven UI flows.</p><div class="tags"><span class="tag">Node.js</span><span class="tag">Dashboard</span><span class="tag">API</span></div></div><a class="project-link" href="https://github.com/MahmoudAbdalrhmanMohamed/dashboard-assignment" target="_blank" rel="noopener">View repo →</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about-grid">
+        <article class="card reveal"><div class="eyebrow" data-i18n="aboutEyebrow">About</div><h2 data-i18n="aboutTitle">Frontend developer focused on premium delivery.</h2><p data-i18n="aboutDesc">I’m Mahmoud Abdelrahman, a frontend developer in Egypt. I build modern web products with Vue, Nuxt, responsive UI, SEO, PWA features, and details that make the experience feel professional.</p></article>
+        <div class="timeline">
+          <article class="card line reveal"><div class="date">01</div><div><h3 data-i18n="line1Title">UI Engineering</h3><p data-i18n="line1Desc">Reusable components, clear layouts, responsive screens, and smooth interaction systems.</p></div></article>
+          <article class="card line reveal"><div class="date">02</div><div><h3 data-i18n="line2Title">Search & Speed</h3><p data-i18n="line2Desc">Semantic HTML, metadata, schema, PWA basics, and frontend performance decisions.</p></div></article>
+          <article class="card line reveal"><div class="date">03</div><div><h3 data-i18n="line3Title">Bilingual UX</h3><p data-i18n="line3Desc">English and Arabic layouts with RTL support and clear mobile navigation.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <article class="contact-card reveal">
+          <h2 data-i18n="contactTitle">Let’s build something premium.</h2>
+          <p data-i18n="contactDesc">Need a frontend, 3D landing page, dashboard, SEO-ready website, or PWA portfolio? Contact me and let’s make it sharp.</p>
+          <div class="contact-links">
+            <a class="btn primary" href="mailto:mahnoudhouda5632@gmail.com" data-i18n="emailMe">Email Me</a>
+            <a class="btn ghost" href="tel:+2001111725505" data-i18n="callMe">Call Me</a>
+            <a class="btn ghost" href="https://github.com/MahmoudAbdalrhmanMohamed" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn ghost" href="https://www.linkedin.com/in/mahmoud-abdalrahman-2baa81197/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container">© <span id="year"></span> <span data-i18n="footer">Mahmoud Abdelrahman. Premium 3D frontend portfolio.</span></div></footer>
+
+  <script>
+    const translations = {
+      en: {
+        brand: 'Mahmoud 3D', navHome: 'Home', navCapabilities: 'Capabilities', navProjects: 'Projects', navAbout: 'About', navContact: 'Contact', install: 'Install', menu: 'Menu', close: 'Close', status: 'Available for premium frontend work', heroTitle: '3D frontend experiences', heroLine: 'that feel fast and alive.', heroDesc: 'I build Vue/Nuxt products, dashboards, SEO-friendly websites, and lightweight 3D interfaces with polished UX, bilingual support, and production-ready code.', viewProjects: 'View Projects', emailMe: 'Email Me', callMe: 'Call Me', metricProjects: 'Live & GitHub projects', metricStack: 'Main frontend stack', metricFocus: 'Performance focus', capEyebrow: 'Capabilities', capTitle: 'Premium interfaces with motion, clarity, and measurable quality.', capDesc: 'I keep 3D purposeful: it supports the message, adds depth, and stays lightweight enough for real users.', cap1Title: '3D Visual Systems', cap1Desc: 'Three.js scenes, depth, animated particles, and interactive motion with performance in mind.', cap2Title: 'Frontend Products', cap2Desc: 'Vue/Nuxt websites, dashboards, stores, and responsive product pages built for production.', cap3Title: 'SEO + PWA Delivery', cap3Desc: 'Semantic markup, metadata, installable app behavior, and offline-ready user experience.', projectsEyebrow: 'Selected Work', projectsTitle: 'Live projects first, source code where useful.', projectsDesc: 'Switch between frontend and backend-style work.', filterAll: 'All', filterFrontend: 'Frontend', filterBackend: 'Backend', aboutEyebrow: 'About', aboutTitle: 'Frontend developer focused on premium delivery.', aboutDesc: 'I’m Mahmoud Abdelrahman, a frontend developer in Egypt. I build modern web products with Vue, Nuxt, responsive UI, SEO, PWA features, and details that make the experience feel professional.', line1Title: 'UI Engineering', line1Desc: 'Reusable components, clear layouts, responsive screens, and smooth interaction systems.', line2Title: 'Search & Speed', line2Desc: 'Semantic HTML, metadata, schema, PWA basics, and frontend performance decisions.', line3Title: 'Bilingual UX', line3Desc: 'English and Arabic layouts with RTL support and clear mobile navigation.', contactTitle: 'Let’s build something premium.', contactDesc: 'Need a frontend, 3D landing page, dashboard, SEO-ready website, or PWA portfolio? Contact me and let’s make it sharp.', footer: 'Mahmoud Abdelrahman. Premium 3D frontend portfolio.', offline: 'Ready offline', installReady: 'App is ready to install'
+      },
+      ar: {
+        brand: 'محمود 3D', navHome: 'الرئيسية', navCapabilities: 'القدرات', navProjects: 'الأعمال', navAbout: 'عني', navContact: 'تواصل', install: 'تثبيت', menu: 'القائمة', close: 'إغلاق', status: 'متاح لأعمال واجهات احترافية', heroTitle: 'تجارب واجهات ثلاثية الأبعاد', heroLine: 'سريعة وحيوية.', heroDesc: 'أبني منتجات Vue/Nuxt ولوحات تحكم ومواقع جاهزة للسيو وواجهات ثلاثية الأبعاد خفيفة مع تجربة مصقولة ودعم عربي/إنجليزي وكود جاهز للإنتاج.', viewProjects: 'شاهد الأعمال', emailMe: 'راسلني', callMe: 'اتصل بي', metricProjects: 'مشاريع مباشرة و GitHub', metricStack: 'تقنيات الواجهة الأساسية', metricFocus: 'تركيز على الأداء', capEyebrow: 'القدرات', capTitle: 'واجهات احترافية بحركة ووضوح وجودة قابلة للقياس.', capDesc: 'أستخدم 3D بشكل يخدم الرسالة ويضيف عمقًا بدون إبطاء التجربة.', cap1Title: 'أنظمة مرئية ثلاثية الأبعاد', cap1Desc: 'مشاهد Three.js وجزيئات متحركة وتفاعل بصري مع مراعاة الأداء.', cap2Title: 'منتجات واجهات أمامية', cap2Desc: 'مواقع Vue/Nuxt ولوحات تحكم ومتاجر وصفحات منتجات متجاوبة.', cap3Title: 'تسليم SEO + PWA', cap3Desc: 'HTML دلالي، بيانات وصفية، تطبيق قابل للتثبيت، وتجربة تعمل دون اتصال.', projectsEyebrow: 'أعمال مختارة', projectsTitle: 'المشاريع المباشرة أولًا، والكود عند الحاجة.', projectsDesc: 'بدّل بين أعمال الواجهة والباك إند.', filterAll: 'الكل', filterFrontend: 'واجهات أمامية', filterBackend: 'باك إند', aboutEyebrow: 'عني', aboutTitle: 'مطوّر واجهات يركز على التسليم الاحترافي.', aboutDesc: 'أنا محمود عبد الرحمن، مطوّر واجهات أمامية في مصر. أبني منتجات ويب حديثة باستخدام Vue و Nuxt وتصميم متجاوب وSEO وPWA وتفاصيل تجعل التجربة احترافية.', line1Title: 'هندسة الواجهات', line1Desc: 'مكونات قابلة لإعادة الاستخدام، تخطيطات واضحة، شاشات متجاوبة، وتفاعلات ناعمة.', line2Title: 'البحث والسرعة', line2Desc: 'HTML دلالي، بيانات وصفية، Schema، أساسيات PWA، وقرارات أداء قوية.', line3Title: 'تجربة ثنائية اللغة', line3Desc: 'تخطيطات إنجليزية وعربية مع دعم RTL وتنقل واضح على الموبايل.', contactTitle: 'لنصنع شيئًا احترافيًا.', contactDesc: 'تحتاج واجهة، صفحة 3D، لوحة تحكم، موقع جاهز للسيو، أو بورتفوليو PWA؟ تواصل معي.', footer: 'محمود عبد الرحمن. بورتفوليو واجهات ثلاثي الأبعاد.', offline: 'جاهز للعمل بدون إنترنت', installReady: 'التطبيق جاهز للتثبيت'
+      }
+    };
+
+    const $ = (s) => document.querySelector(s);
+    const $$ = (s) => Array.from(document.querySelectorAll(s));
+    const progress = $('#progress');
+    const year = $('#year');
+    const langBtn = $('#langBtn');
+    const menuBtn = $('#menuBtn');
+    const navLinks = $('#navLinks');
+    const installBtn = $('#installBtn');
+    const toast = $('#toast');
+    let currentLang = localStorage.getItem('portfolio3d-lang') || 'en';
+    let deferredPrompt = null;
+
+    year.textContent = new Date().getFullYear();
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2200);
+    }
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('portfolio3d-lang', lang);
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      $$('[data-i18n]').forEach((el) => {
+        const key = el.dataset.i18n;
+        if (translations[lang][key]) el.textContent = translations[lang][key];
+      });
+      langBtn.textContent = lang === 'en' ? 'AR' : 'EN';
+      menuBtn.textContent = translations[lang].menu;
+      installBtn.textContent = translations[lang].install;
+    }
+
+    applyLanguage(currentLang);
+    langBtn.addEventListener('click', () => applyLanguage(currentLang === 'en' ? 'ar' : 'en'));
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      menuBtn.textContent = navLinks.classList.contains('open') ? translations[currentLang].close : translations[currentLang].menu;
+    });
+    $$('.links a').forEach((link) => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuBtn.textContent = translations[currentLang].menu;
+    }));
+
+    window.addEventListener('scroll', () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
+    }, { passive: true });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: .14 });
+    $$('.reveal').forEach((el) => revealObserver.observe(el));
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        $$('.links a').forEach((a) => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+      });
+    }, { threshold: .45 });
+    $$('main section[id]').forEach((s) => sectionObserver.observe(s));
+
+    $$('.filter').forEach((button) => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        $$('.filter').forEach((b) => b.classList.remove('active'));
+        button.classList.add('active');
+        $$('.project').forEach((card) => card.classList.toggle('hidden', filter !== 'all' && card.dataset.type !== filter));
+      });
+    });
+
+    window.addEventListener('beforeinstallprompt', (event) => {
+      event.preventDefault();
+      deferredPrompt = event;
+      installBtn.style.display = 'inline-flex';
+      showToast(translations[currentLang].installReady);
+    });
+    installBtn.addEventListener('click', async () => {
+      if (!deferredPrompt) return;
+      deferredPrompt.prompt();
+      await deferredPrompt.userChoice;
+      deferredPrompt = null;
+      installBtn.style.display = 'none';
+    });
+    window.addEventListener('appinstalled', () => {
+      deferredPrompt = null;
+      installBtn.style.display = 'none';
+    });
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', async () => {
+        try {
+          await navigator.serviceWorker.register('./sw.js');
+          showToast(translations[currentLang].offline);
+        } catch (error) {
+          console.warn('Service worker failed:', error);
+        }
+      });
+    }
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (window.THREE && !reduced) {
+      const canvas = $('#bg');
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, .1, 1600);
+      camera.position.set(0, 0, 110);
+      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, powerPreference: 'high-performance' });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      scene.add(new THREE.AmbientLight(0xffffff, .78));
+      const light = new THREE.DirectionalLight(0x7dd3fc, .8);
+      light.position.set(80, 90, 120);
+      scene.add(light);
+      const geometry = new THREE.BufferGeometry();
+      const count = 1700;
+      const positions = new Float32Array(count * 3);
+      const colors = new Float32Array(count * 3);
+      const color = new THREE.Color();
+      for (let i = 0; i < count; i++) {
+        const idx = i * 3;
+        const r = 240 + Math.random() * 460;
+        const theta = Math.random() * Math.PI * 2;
+        const phi = Math.acos(2 * Math.random() - 1);
+        positions[idx] = r * Math.sin(phi) * Math.cos(theta);
+        positions[idx + 1] = r * Math.sin(phi) * Math.sin(theta);
+        positions[idx + 2] = r * Math.cos(phi);
+        color.setHSL(.58 + Math.random() * .14, .75, .58 + Math.random() * .18);
+        colors[idx] = color.r; colors[idx + 1] = color.g; colors[idx + 2] = color.b;
+      }
+      geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+      const points = new THREE.Points(geometry, new THREE.PointsMaterial({ size: 2.7, transparent: true, opacity: .84, vertexColors: true, blending: THREE.AdditiveBlending, depthWrite: false }));
+      scene.add(points);
+      const knot = new THREE.Mesh(new THREE.TorusKnotGeometry(22, 5, 160, 24), new THREE.MeshStandardMaterial({ color: 0x38bdf8, wireframe: true, transparent: true, opacity: .23 }));
+      knot.position.set(-58, -38, -120);
+      scene.add(knot);
+      const ico = new THREE.Mesh(new THREE.IcosahedronGeometry(32, 1), new THREE.MeshStandardMaterial({ color: 0xf59e0b, wireframe: true, transparent: true, opacity: .24 }));
+      ico.position.set(80, 46, -170);
+      scene.add(ico);
+      const pointer = { x: 0, y: 0 };
+      window.addEventListener('pointermove', (e) => {
+        pointer.x = e.clientX / window.innerWidth * 2 - 1;
+        pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
+      }, { passive: true });
+      window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      });
+      function animate() {
+        points.rotation.y += .0009;
+        points.rotation.x += .00035;
+        knot.rotation.x += .003;
+        knot.rotation.y += .0024;
+        ico.rotation.x -= .0024;
+        ico.rotation.y += .0017;
+        camera.position.x += (pointer.x * 12 - camera.position.x) * .03;
+        camera.position.y += (pointer.y * 8 - camera.position.y) * .03;
+        camera.lookAt(0, 0, -120);
+        renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+  </script>
 </body>
 </html>

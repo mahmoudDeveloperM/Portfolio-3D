@@ -1,4 +1,4 @@
-﻿User-agent: *
+User-agent: *
 Allow: /
 
 Sitemap: https://mahmouddeveloperm.github.io/Portfolio-3D/sitemap.xml

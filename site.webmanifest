@@ -1,12 +1,12 @@
-﻿{
-  "name": "Mahmoud Abdelrahman 3D Portfolio",
+{
+  "name": "Mahmoud Abdelrahman \u2014 3D Full Stack Portfolio",
   "short_name": "Mahmoud 3D",
-  "description": "3D frontend portfolio focused on immersive UI, SEO, and performance.",
+  "description": "3D Full Stack portfolio focused on Vue.js, Nuxt.js, Node.js, NestJS, performance, accessibility, and SEO.",
   "start_url": "/Portfolio-3D/",
   "scope": "/Portfolio-3D/",
   "display": "standalone",
-  "background_color": "#f8fbff",
-  "theme_color": "#0b6cff",
+  "background_color": "#050816",
+  "theme_color": "#050816",
   "icons": [
     {
       "src": "./assets/favicon.svg",

@@ -1,84 +1,15 @@
-# CODEX Project Notes
+# Portfolio 3D — Full Stack Refresh
 
-> Note: This file documents the earlier 2D version updates.  
-> 3D version upgrades are documented in `CODEX-3D.md`.
+This package is an updated local version of `mahmoudDeveloperM/Portfolio-3D`.
 
-## What was improved
+## Main changes
+- Repositioned from frontend-only to Full Stack Developer.
+- Updated hero, skills, projects, experience, contact details, SEO, JSON-LD, manifest, and social card.
+- Added current CV projects: Resux, TaskFlow, YouLearnt, Book Store, Comics Platform, Medical Corporate Platform.
+- Added measurable CV outcomes and current experience.
+- Preserved the 3D/Three.js presentation while keeping `prefers-reduced-motion` support.
+- Added a small service worker because the prior page referenced `sw.js` but the repository did not contain one.
+- Replaced `cv.pdf` with the latest Full Stack CV provided on 2026-09-20.
 
-This portfolio was enhanced in these areas:
-
-1. SEO optimization
-2. UI/visual redesign
-3. Smooth scrolling and better scrollbar styling
-4. Content updates (new project entries)
-5. Technical cleanup and accessibility improvements
-
-## Files updated
-
-- `index.html`
-
-## Files added
-
-- `robots.txt`
-- `sitemap.xml`
-- `site.webmanifest`
-
-## SEO updates applied
-
-- Improved `meta` tags:
-  - stronger `description`
-  - richer `robots` directives
-  - Open Graph image alt text
-  - Twitter image alt text
-  - `theme-color`
-- Added/updated canonical and sitemap link references
-- Added JSON-LD structured data:
-  - `Person`
-  - `WebSite`
-  - `ItemList` for featured projects
-- Added crawler support files:
-  - `robots.txt`
-  - `sitemap.xml`
-  - `site.webmanifest`
-
-## Design and UX updates
-
-- Reworked color system to a warmer, more intentional palette
-- Updated typography (non-default expressive font pairing)
-- Improved hero and section styles
-- Sticky header/nav behavior
-- Better card styling for skills/projects
-- Added skip link for accessibility
-- Active nav highlighting based on scroll position
-
-## Scrolling and performance improvements
-
-- Smoother anchor scrolling
-- Scroll logic optimized with `requestAnimationFrame` throttling
-- Reduced motion support via `prefers-reduced-motion`
-- Custom themed scrollbar styling for modern browsers
-
-## Content updates
-
-- Added `YouLearnt` project:
-  - URL: `https://youlearnt.com/en`
-- Added YouLearnt to JSON-LD `ItemList` as a featured project
-
-## Notes
-
-- Google verification file remains in place:
-  - `google3907fba4b86f5119.html`
-- `cv.pdf` is included and referenced by the portfolio.
-
-## Publish checklist
-
-1. Confirm GitHub auth is correct
-2. Run:
-   - `git add -A`
-   - `git commit -m "Update portfolio SEO and design"`
-   - `git push origin main`
-3. Verify live pages:
-   - `/`
-   - `/sitemap.xml`
-   - `/robots.txt`
-   - `/site.webmanifest`
+## Publish
+Copy these files into the repository root, review, commit, and deploy.

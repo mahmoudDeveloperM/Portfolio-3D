@@ -29,7 +29,9 @@ section{padding:96px 0;scroll-margin-top:86px}.hero{min-height:90vh;display:grid
 /* Mobile-first hardening for the 3D experience. */
 img,svg,canvas,video{max-width:100%}button,a,input{touch-action:manipulation}
 .brand,.actions{flex:0 0 auto}.pill,.card,.contact,.repo-card,.project-toolbar,.search-box,.orb{min-width:0}
+.hero-grid>*{min-width:0;max-width:100%}.code,.code pre{min-width:0;max-width:100%}.code pre{direction:ltr;text-align:left}
 h1,h2,h3,h4,p,.pill span,.btn,.repo-filter{overflow-wrap:anywhere}
+html,body{max-width:100%;overflow-x:clip}
 @media(max-width:730px){
   .container{width:min(100% - 28px,1200px)}.nav{height:64px;gap:10px}.brand{font-size:1rem}.actions{gap:6px}
   .nav-btn{min-height:44px;padding:9px 11px}.links{top:64px;left:14px;right:14px;max-height:calc(100dvh - 78px);overflow-y:auto;box-shadow:0 22px 60px rgba(0,0,0,.48)}
@@ -44,6 +46,8 @@ h1,h2,h3,h4,p,.pill span,.btn,.repo-filter{overflow-wrap:anywhere}
   .library-top .btn{width:100%}.project-toolbar{padding:10px;border-radius:17px}.search-box{padding:0 12px}.repo-filter{min-height:44px;padding:8px}.results-row{flex-wrap:wrap}.repo-card{min-height:auto}
   .job{gap:8px}.contact{padding:28px 20px;border-radius:24px}.contact h2{font-size:clamp(2rem,10vw,3rem)}.contact .cta .btn{flex-basis:calc(50% - 5px)}
   footer{padding:24px 0}
+  .reveal{opacity:1!important;transform:none!important}
+  html[dir="rtl"] h1,html[dir="rtl"] .lead{text-align:right}
 }
 @media(max-width:390px){
   .container{width:calc(100% - 24px)}.brand{max-width:120px}.repo-filters{grid-template-columns:1fr}

@@ -25,6 +25,32 @@ section{padding:96px 0;scroll-margin-top:86px}.hero{min-height:90vh;display:grid
 .reveal{opacity:0;transform:translateY(20px);transition:.65s}.reveal.visible{opacity:1;transform:none}
 @media(max-width:1080px){.repo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.project-toolbar{grid-template-columns:1fr}.repo-filters{justify-content:flex-start}}@media(max-width:980px){.hero-grid{grid-template-columns:1fr}.caps{grid-template-columns:repeat(2,1fr)}.orb{min-height:500px}}@media(max-width:730px){.repo-grid{grid-template-columns:1fr}.featured-head,.library-top{align-items:flex-start;flex-direction:column}.project-toolbar{position:static}.repo-filters{display:grid;grid-template-columns:repeat(2,1fr);width:100%}.repo-filter{text-align:center}.github-library{padding-top:36px}.links{position:absolute;top:76px;left:18px;right:18px;display:none;flex-direction:column;background:#07111f;padding:12px;border-radius:18px;border:1px solid var(--line)}.links.open{display:flex}.menu{display:inline-flex}.stats,.caps,.projects{grid-template-columns:1fr}.job{grid-template-columns:1fr}section{padding:75px 0}.orb{min-height:490px}.cube,.face{width:145px;height:145px}.front{transform:translateZ(72.5px)}.back{transform:rotateY(180deg) translateZ(72.5px)}.right{transform:rotateY(90deg) translateZ(72.5px)}.left{transform:rotateY(-90deg) translateZ(72.5px)}.top{transform:rotateX(90deg) translateZ(72.5px)}.bottom{transform:rotateX(-90deg) translateZ(72.5px)}}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
 </style>
+<style>
+/* Mobile-first hardening for the 3D experience. */
+img,svg,canvas,video{max-width:100%}button,a,input{touch-action:manipulation}
+.brand,.actions{flex:0 0 auto}.pill,.card,.contact,.repo-card,.project-toolbar,.search-box,.orb{min-width:0}
+h1,h2,h3,h4,p,.pill span,.btn,.repo-filter{overflow-wrap:anywhere}
+@media(max-width:730px){
+  .container{width:min(100% - 28px,1200px)}.nav{height:64px;gap:10px}.brand{font-size:1rem}.actions{gap:6px}
+  .nav-btn{min-height:44px;padding:9px 11px}.links{top:64px;left:14px;right:14px;max-height:calc(100dvh - 78px);overflow-y:auto;box-shadow:0 22px 60px rgba(0,0,0,.48)}
+  .links a{display:flex;align-items:center;min-height:46px}section{padding:58px 0;scroll-margin-top:72px}.hero{min-height:auto;padding-top:56px}
+  .hero-grid{gap:30px}.pill{width:100%;border-radius:16px;align-items:flex-start;font-size:.8rem}.pill .dot{flex:0 0 auto;margin-top:.38rem}
+  h1{font-size:clamp(2.45rem,12.5vw,4.25rem);line-height:1.02;margin:18px 0}.lead,.head p{font-size:1rem}
+  .cta{gap:10px;margin-top:24px}.cta .btn{flex:1 1 145px}.stats{gap:10px}.stat{padding:15px}
+  .orb{min-height:430px;border-radius:24px}.cube,.face{width:122px;height:122px}.front{transform:translateZ(61px)}.back{transform:rotateY(180deg) translateZ(61px)}.right{transform:rotateY(90deg) translateZ(61px)}.left{transform:rotateY(-90deg) translateZ(61px)}.top{transform:rotateX(90deg) translateZ(61px)}.bottom{transform:rotateX(-90deg) translateZ(61px)}
+  .chip{padding:7px 9px;font-size:.7rem}.a{left:14px;top:18px}.b{right:14px;top:48px}.c{left:18px;bottom:142px}
+  .code{left:12px;right:12px;bottom:12px;border-radius:15px}.code pre{padding:14px 12px;font-size:.69rem;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere}
+  .head{margin-bottom:24px}.head h2{font-size:clamp(2rem,10vw,3.2rem)}.card,.repo-card{padding:20px;border-radius:20px}.project{min-height:auto}.featured-projects{margin-bottom:44px}
+  .library-top .btn{width:100%}.project-toolbar{padding:10px;border-radius:17px}.search-box{padding:0 12px}.repo-filter{min-height:44px;padding:8px}.results-row{flex-wrap:wrap}.repo-card{min-height:auto}
+  .job{gap:8px}.contact{padding:28px 20px;border-radius:24px}.contact h2{font-size:clamp(2rem,10vw,3rem)}.contact .cta .btn{flex-basis:calc(50% - 5px)}
+  footer{padding:24px 0}
+}
+@media(max-width:390px){
+  .container{width:calc(100% - 24px)}.brand{max-width:120px}.repo-filters{grid-template-columns:1fr}
+  .cta .btn,.contact .cta .btn{flex-basis:100%;width:100%}h1{font-size:clamp(2.15rem,12vw,3rem)}
+  .head h2,.contact h2{font-size:clamp(1.85rem,9.5vw,2.5rem)}.card,.repo-card{padding:18px}.orb{min-height:400px}
+}
+</style>
 </head>
 <body>
 <canvas id="bg" aria-hidden="true"></canvas><div class="noise"></div><div class="grid-bg"></div><div class="progress" id="progress"></div>
